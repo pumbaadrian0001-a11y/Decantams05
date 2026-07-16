@@ -3,8 +3,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>decantAMS - Perfumes Exclusivos</title>
-    <style>
-        /* Estilos CSS Base con Fondo de Lujo Integrado */
+        <style>
+        /* Estilos CSS Base con Fondo de Lujo Local Integrado */
         *{margin:0;padding:0;box-sizing:border-box}
 
         /* Asegura el desplazamiento suave al hacer clic en los enlaces del menú */
@@ -12,18 +12,17 @@
             scroll-behavior: smooth;
         }
         
-         body {
+        body {
             font-family: 'Montserrat', Arial, sans-serif;
-            /* Si la imagen no carga, el fondo será negro sólido para que no se vea feo */
             background-color: #000000;
-            /* Aquí está la imagen. Si el link falla, el navegador simplemente mostrará el negro de arriba */
+            /* Llamamos directamente a la imagen que subiste a tu GitHub */
             background-image: 
                 linear-gradient(rgba(8, 8, 8, 0.82), rgba(8, 8, 8, 0.88)), 
-                url('https://i.postimg.cc/0jXyD6s0/marmol-oro.jpg');
+                url('marmol-oro.jpg'); 
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            background-attachment: fixed;
+            background-attachment: fixed; /* Efecto parallax épico en el cel */
             color: #fff;
             padding-top: 120px;
             overflow-x: hidden;
@@ -34,6 +33,7 @@
         nav ul{display:flex;gap:20px;list-style:none;align-items:center}
         nav a{color:#fff;text-decoration:none;transition: color 0.3s;font-weight: 500;letter-spacing: 1px;}
         nav a:hover{color:#D4AF37}
+
 
         /* 📦 CINTURÓN DE ENVÍOS PREMIUM */
         .shipping-bar {
@@ -155,43 +155,32 @@
             margin-top: 20px;
         }
         
-        /* Tarjetas estilo Glassmorphism de Lujo Mejoradas */
-        .card {
-            border: 1px solid rgba(212, 175, 55, 0.25);
-            padding: 25px;
-            border-radius: 20px;
-            background: rgba(17, 17, 17, 0.75);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-            position: relative;
-            overflow: hidden;
-        }
+        /* Tarjetas estilo Glassmorphism de Lujo Mejoradas para el Mármol */
+.card {
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    padding: 25px;
+    border-radius: 20px;
+    /* Subimos la opacidad a 0.85 y el blur a 12px para que el fondo no interfiera con las letras */
+    background: rgba(12, 12, 12, 0.85); 
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
+    position: relative;
+    overflow: hidden;
+}
 
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.12), transparent 70%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            pointer-events: none;
-        }
+.card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(212, 175, 55, 0.9);
+    background: rgba(18, 18, 18, 0.95);
+    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+}
 
-        .card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(212, 175, 55, 0.8);
-            background: rgba(24, 24, 24, 0.9);
-            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.12);
-        }
 
         .card:hover::before {
             opacity: 1;
