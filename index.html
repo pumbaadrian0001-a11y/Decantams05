@@ -6,7 +6,42 @@
     <style>
         /* Estilos CSS Base con Fondo de Lujo Integrado */
         *{margin:0;padding:0;box-sizing:border-box}
-        
+
+        /* 📱 AJUSTES EXCLUSIVOS PARA CELULARES */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px 10px !important;
+    }
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+    h1, .descubre-titulo {
+        font-size: 1.8rem !important;
+    }
+    body {
+        padding-top: 140px !important;
+    }
+    .productos-container {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+        padding: 10px !important;
+    }
+    .producto-card {
+        padding: 10px !important;
+    }
+    .producto-card h3 {
+        font-size: 0.9rem !important;
+    }
+    .producto-card .precio {
+        font-size: 0.95rem !important;
+    }
+}
+
         /* Asegura el desplazamiento suave al hacer clic en los enlaces del menú */
         html {
             scroll-behavior: smooth;
