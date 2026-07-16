@@ -685,6 +685,32 @@
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             padding-top: 25px;
         }
+        /* 📱 AJUSTES EXCLUSIVOS PARA CELULARES */
+@media (max-width: 768px) {
+    /* Hace que el menú de navegación se acomode hacia abajo o permita scroll */
+    nav {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px 10px !important;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    /* Ajusta el tamaño del texto principal para que no se desborde */
+    h1, .descubre-titulo {
+        font-size: 1.8rem !important;
+    }
+
+    /* Baja un poco el espacio superior para que no tape el logo */
+    body {
+        padding-top: 140px !important;
+    }
+}
+
     </style>
 </head>
 <body>
