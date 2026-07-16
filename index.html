@@ -7,41 +7,6 @@
         /* Estilos CSS Base con Fondo de Lujo Integrado */
         *{margin:0;padding:0;box-sizing:border-box}
 
-        /* 📱 AJUSTES EXCLUSIVOS PARA CELULARES */
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        gap: 10px;
-        padding: 15px 10px !important;
-    }
-    nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px;
-    }
-    h1, .descubre-titulo {
-        font-size: 1.8rem !important;
-    }
-    body {
-        padding-top: 140px !important;
-    }
-    .productos-container {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 10px !important;
-        padding: 10px !important;
-    }
-    .producto-card {
-        padding: 10px !important;
-    }
-    .producto-card h3 {
-        font-size: 0.9rem !important;
-    }
-    .producto-card .precio {
-        font-size: 0.95rem !important;
-    }
-}
-
         /* Asegura el desplazamiento suave al hacer clic en los enlaces del menú */
         html {
             scroll-behavior: smooth;
@@ -720,32 +685,95 @@
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             padding-top: 25px;
         }
-        /* 📱 AJUSTES EXCLUSIVOS PARA CELULARES */
-@media (max-width: 768px) {
-    /* Hace que el menú de navegación se acomode hacia abajo o permita scroll */
-    nav {
-        flex-direction: column;
-        gap: 10px;
-        padding: 15px 10px !important;
-    }
 
-    nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px;
-    }
+        /* 📱 AJUSTES EXCLUSIVOS PARA CELULARES (Único y Corregido) */
+        @media (max-width: 768px) {
+            /* Hace que el menú de navegación se acomode hacia abajo */
+            nav {
+                flex-direction: column;
+                gap: 10px;
+                padding: 15px 10px !important;
+            }
 
-    /* Ajusta el tamaño del texto principal para que no se desborde */
-    h1, .descubre-titulo {
-        font-size: 1.8rem !important;
-    }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
 
-    /* Baja un poco el espacio superior para que no tape el logo */
-    body {
-        padding-top: 140px !important;
-    }
-}
+            /* Ajusta el tamaño del texto principal para que no se desborde */
+            h1, .descubre-titulo {
+                font-size: 1.8rem !important;
+            }
 
+            /* Baja el espacio para que el menú de arriba no tape el logo */
+            body {
+                padding-top: 150px !important;
+            }
+
+            /* ⚡ FORZA 2 COLUMNAS EN EL CATÁLOGO EN MÓVILES ⚡ */
+            .productos-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 12px !important;
+                padding: 0px 5px !important;
+            }
+
+            /* Ajuste de márgenes de las tarjetas para que no se vea apretado */
+            .card {
+                padding: 12px !important;
+                border-radius: 12px !important;
+            }
+
+            .card img {
+                max-height: 110px !important; /* Achica un poco la imagen para dejar espacio al texto */
+                margin-bottom: 10px !important;
+                padding: 5px !important;
+            }
+
+            .card h3 {
+                font-size: 0.95rem !important; /* Ajusta el nombre del perfume */
+                min-height: auto !important;
+                margin-bottom: 8px !important;
+            }
+
+            .perfume-detalles {
+                font-size: 0.75rem !important;
+                margin-bottom: 10px !important;
+                gap: 4px !important;
+            }
+
+            .perfume-detalles .familia {
+                font-size: 0.65rem !important;
+                padding: 2px 6px !important;
+            }
+
+            .perfume-detalles .notes, 
+            .perfume-detalles .etiqueta-uso {
+                display: none !important; /* Esconde las notas largas en celular para mantenerlo estético y limpio */
+            }
+
+            .medidas-container {
+                padding: 2px !important;
+                margin-bottom: 10px !important;
+                gap: 4px !important;
+            }
+
+            .medida-btn {
+                padding: 6px 4px !important;
+                font-size: 0.75rem !important;
+            }
+
+            .precio-dinamico {
+                font-size: 1.15rem !important;
+                margin-bottom: 10px !important;
+            }
+
+            .btn-agregar {
+                padding: 9px !important;
+                font-size: 0.8rem !important;
+                border-radius: 15px !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -780,7 +808,6 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DE PERFUMES (CATÁLOGO) -->
     <section id="catalogo">
         <h2>Nuestros Decants</h2>
         <div class="productos-grid">
@@ -980,7 +1007,6 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DE GORRAS -->
     <section id="gorras">
         <h2>Gorras Exclusivas</h2>
         <div class="productos-grid">
@@ -1018,7 +1044,6 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DEL CARRITO -->
     <section id="carrito">
         <h2>Tu Carrito de Compras</h2>
         <div class="carrito-container">
@@ -1036,21 +1061,16 @@
         </div>
     </section>
 
-    <!-- 📸 NUEVA UBICACIÓN: SECCIÓN NUESTROS CLIENTES -->
     <section id="clientes">
         <h2>Nuestros Clientes</h2>
         <div class="clientes-container">
-            <!-- Botones de Navegación -->
             <button class="carousel-btn prev-btn" onclick="cambiarSlide(-1)">&#10094;</button>
             <button class="carousel-btn next-btn" onclick="cambiarSlide(1)">&#10095;</button>
 
-            <!-- Slides del Carrusel -->
             <div class="carousel-slides" id="carousel-slides">
                 
-                <!-- Slide 1 -->
                 <div class="slide">
                     <div class="slide-img-container">
-                        <!-- IMPORTANTE: Reemplaza este link de Postimg con la foto real de tu cliente -->
                         <img src="https://i.postimg.cc/cChWjTXp/Gorrita.jpg" alt="Cliente Satisfecho 1">
                     </div>
                     <div class="slide-caption">
@@ -1059,10 +1079,8 @@
                     </div>
                 </div>
 
-                <!-- Slide 2 -->
                 <div class="slide">
                     <div class="slide-img-container">
-                        <!-- IMPORTANTE: Reemplaza este link de Postimg con la foto real de tu cliente -->
                         <img src="https://i.postimg.cc/VvgwT4Kc/Decant1.jpg" alt="Cliente Satisfecho 2">
                     </div>
                     <div class="slide-caption">
@@ -1071,10 +1089,8 @@
                     </div>
                 </div>
 
-                <!-- Slide 3 -->
                 <div class="slide">
                     <div class="slide-img-container">
-                        <!-- IMPORTANTE: Reemplaza este link de Postimg con la foto real de tu cliente -->
                         <img src="https://i.postimg.cc/hvsnwMp2/Decabt2.jpg" alt="Cliente Satisfecho 3">
                     </div>
                     <div class="slide-caption">
@@ -1086,7 +1102,6 @@
             </div>
         </div>
 
-        <!-- Puntos Indicadores del Carrusel -->
         <div class="carousel-dots" id="carousel-dots">
             <span class="dot active" onclick="irASlide(0)"></span>
             <span class="dot" onclick="irASlide(1)"></span>
@@ -1094,7 +1109,6 @@
         </div>
     </section>
 
-    <!-- PIE DE PÁGINA -->
     <footer class="footer-premium">
         <div class="footer-brand">decantAMS</div>
         <div class="footer-tagline">El arte de vestir una fragancia</div>
@@ -1108,15 +1122,13 @@
             </div>
         </div>
         
-                <div class="social-icons-container">
-            <!-- TIKTOK -->
+        <div class="social-icons-container">
             <a href="https://www.tiktok.com/@decantamsoff?_r=1&_t=ZS-985Pv1R2zv6" target="_blank" class="social-btn" title="Síguenos en TikTok">
                 <svg viewBox="0 0 448 512">
                     <path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.17v82.35a80.16,80.16,0,1,0,37.8,67.79V0h82.15a139.77,139.77,0,0,0,13.91,57.14A141.13,141.13,0,0,0,448,109.43Z"/>
                 </svg>
             </a>
 
-            <!-- INSTAGRAM -->
             <a href="https://www.instagram.com/adrianssito_mtz?igsh=MTRkdzl6MzJ2NDJ4dQ==" target="_blank" class="social-btn" title="Síguenos en Instagram">
                 <svg viewBox="0 0 448 512">
                     <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7 0-41.1 33.5-74.7 74.7-74.7 41.1 0 74.7 33.5 74.7 74.7 0 41.1-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
@@ -1129,13 +1141,11 @@
         </div>
     </footer>
 
-    <!-- NOTIFICACIÓN DE TOAST -->
     <div id="toast" class="toast-notificacion">
         <span class="toast-icon">✨</span>
         <span id="toast-mensaje">Producto agregado</span>
     </div>
 
-    <!-- CÓDIGO JAVASCRIPT ROBUSTO -->
     <script>
         let carrito = [];
 
