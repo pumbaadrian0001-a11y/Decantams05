@@ -1,0 +1,1289 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>decantAMS - Perfumes Exclusivos</title>
+    <style>
+        /* Estilos CSS Base con Fondo de Lujo Integrado */
+        *{margin:0;padding:0;box-sizing:border-box}
+        
+        /* Asegura el desplazamiento suave al hacer clic en los enlaces del menú */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            background-color: #080808;
+            background-image: 
+                radial-gradient(circle at 50% 30%, rgba(212, 175, 55, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 10% 10%, rgba(212, 175, 55, 0.05) 0%, transparent 30%),
+                radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 30%),
+                linear-gradient(rgba(255, 255, 255, 0.007) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.007) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 100% 100%, 25px 25px, 25px 25px;
+            color: #fff;
+            padding-top: 120px; /* Ajustado para el cinturón de envíos */
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+        
+        /* Navegación */
+        nav{display:flex;justify-content:space-between;align-items:center;padding:15px 8%;position:fixed;top:0;left:0;width:100%;background:rgba(8,8,8,.95);z-index:1000;border-bottom:1px solid rgba(212,175,55,0.15);backdrop-filter: blur(10px);}
+        nav ul{display:flex;gap:20px;list-style:none;align-items:center}
+        nav a{color:#fff;text-decoration:none;transition: color 0.3s;font-weight: 500;letter-spacing: 1px;}
+        nav a:hover{color:#D4AF37}
+
+        /* 📦 CINTURÓN DE ENVÍOS PREMIUM */
+        .shipping-bar {
+            position: fixed;
+            top: 65px; /* Justo debajo del menú principal */
+            left: 0;
+            width: 100%;
+            background: linear-gradient(90deg, rgba(212, 175, 55, 0.2) 0%, rgba(8, 8, 8, 0.95) 50%, rgba(212, 175, 55, 0.2) 100%);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+            padding: 8px 10px;
+            text-align: center;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+            z-index: 999;
+            backdrop-filter: blur(5px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .shipping-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #fff;
+        }
+
+        .shipping-item span {
+            color: #D4AF37;
+        }
+        
+        /* Animación para el botón del carrito al agregar un producto */
+        @keyframes sacudida-dorada {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.25); color: #D4AF37; text-shadow: 0 0 12px #D4AF37; }
+            100% { transform: scale(1); }
+        }
+        .animar-carrito {
+            animation: sacudida-dorada 0.4s ease-in-out;
+        }
+        
+        /* Hero Section Premium con Logo de decantAMS */
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Contenedor del Logo de decantAMS - AJUSTADO A 200px */
+        .brand-logo-container {
+            width: 200px !important;
+            height: 200px !important;
+            margin: 0 auto 25px auto;
+            border-radius: 50%;
+            border: 4px solid #D4AF37 !important; /* Borde dorado más marcado */
+            padding: 8px;
+            background: radial-gradient(circle, rgba(17, 17, 17, 0.9) 60%, rgba(212, 175, 55, 0.2) 100%);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.5); /* Mayor brillo */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.5s ease;
+        }
+
+        .brand-logo-container:hover {
+            transform: scale(1.05) rotate(3deg);
+            border-color: #D4AF37;
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.7);
+        }
+
+        .brand-logo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .quote {
+            color: #D4AF37;
+            margin-bottom: 25px;
+            font-style: italic;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #FFF 30%, #D4AF37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .btn{display:inline-block;padding:14px 35px;background:#D4AF37;color:#111;text-decoration:none;border-radius:30px;font-weight:bold;transition: transform 0.2s, background 0.3s, box-shadow 0.3s;cursor:pointer;border:none;box-shadow: 0 4px 15px rgba(212,175,55,0.3);}
+        .btn:hover{background:#fff;transform: scale(1.05);box-shadow: 0 6px 20px rgba(255,255,255,0.4);}
+        
+        /* Secciones */
+        section{padding:80px 8%}
+        h2{font-size:2.2rem;color:#D4AF37;margin-bottom:40px;text-align:center;text-transform: uppercase;letter-spacing: 3px;text-shadow: 0 2px 10px rgba(212,175,55,0.2);}
+        
+        /* Grid de Productos */
+        .productos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+            margin-top: 20px;
+        }
+        
+        /* Tarjetas estilo Glassmorphism de Lujo Mejoradas */
+        .card {
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            padding: 25px;
+            border-radius: 20px;
+            background: rgba(17, 17, 17, 0.75);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.12), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(212, 175, 55, 0.8);
+            background: rgba(24, 24, 24, 0.9);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.12);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card img {
+            width: 100%;
+            max-height: 190px;
+            object-fit: contain;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.01);
+            padding: 10px;
+            transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .card:hover img {
+            transform: scale(1.06) translateY(-5px);
+        }
+
+        .card h3 {
+            margin-bottom: 5px;
+            font-size: 1.4rem;
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: 0.5px;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* Estilos de los Detalles del Perfume */
+        .perfume-detalles {
+            margin-bottom: 18px;
+            font-size: 0.85rem;
+            color: #ccc;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .perfume-detalles .familia {
+            color: #D4AF37;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            background: rgba(212, 175, 55, 0.12);
+            padding: 3px 10px;
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.25);
+        }
+
+        .perfume-detalles .notes {
+            font-style: italic;
+            color: #e0e0e0;
+        }
+
+        .perfume-detalles .etiqueta-uso {
+            font-size: 0.75rem;
+            color: #999;
+            font-weight: 500;
+        }
+        
+        /* Selector tipo Cápsula Premium */
+        .medidas-container {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 18px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 4px;
+            border-radius: 30px;
+            border: 1px solid rgba(212, 175, 55, 0.25);
+        }
+        
+        .medida-btn {
+            flex: 1;
+            background: transparent;
+            color: #aaa;
+            border: none;
+            padding: 9px 12px;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            outline: none;
+        }
+        
+        .medida-btn:hover {
+            color: #fff;
+        }
+        
+        .medida-btn.active {
+            background: #D4AF37;
+            color: #111;
+            box-shadow: 0 4px 15px rgba(212,175,55,0.45);
+        }
+        
+        /* Animación del Precio */
+        .precio-dinamico {
+            font-size: 1.6rem;
+            color: #D4AF37;
+            font-weight: bold;
+            margin-bottom: 18px;
+            transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(0);
+            opacity: 1;
+            text-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+        }
+        
+        .precio-cambio {
+            opacity: 0;
+            transform: translateY(-8px);
+        }
+        
+        .btn-agregar {
+            display: block;
+            width: 100%;
+            padding: 13px;
+            background: #D4AF37;
+            color: #111;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+            box-shadow: 0 4px 10px rgba(212, 175, 55, 0.15);
+        }
+        .btn-agregar:hover { 
+            background: #fff; 
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(255, 255, 255, 0.3);
+        }
+        .btn-agregar:active {
+            transform: translateY(1px);
+        }
+        
+        /* Carrito Section */
+        .carrito-container {
+            background: rgba(17,17,17,0.75);
+            border: 1px dashed rgba(212,175,55,0.4);
+            border-radius: 20px;
+            padding: 35px;
+            max-width: 600px;
+            margin: 0 auto;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+        .item-carrito {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(212,175,55,0.1);
+        }
+        .item-carrito button {
+            background: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .item-carrito button:hover { background: #ff1a1a; }
+        
+        .total-carrito {
+            text-align: right;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #D4AF37;
+            margin: 25px 0;
+        }
+        
+        /* Botón de WhatsApp Rediseñado en Negro y Dorado */
+        .btn-whatsapp {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            background: #080808;
+            color: #D4AF37;
+            padding: 15px;
+            border: 2px solid #D4AF37;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212,175,55,0.15);
+        }
+        .btn-whatsapp:hover { 
+            background: #D4AF37; 
+            color: #111;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Corrección del SVG de WhatsApp para evitar que se deforme */
+        .btn-whatsapp svg {
+            flex-shrink: 0;
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+            transition: fill 0.3s ease;
+        }
+        
+        .contador-carrito {
+            background: #D4AF37;
+            color: #111;
+            padding: 2px 8px;
+            border-radius: 50%;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 5px;
+            transition: all 0.3s;
+        }
+
+        /* 📸 NUEVOS ESTILOS: SECCIÓN NUESTROS CLIENTES (CARRUSEL DE LUJO) */
+        .clientes-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+            background: rgba(17, 17, 17, 0.85);
+            backdrop-filter: blur(10px);
+        }
+
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            width: 100%;
+        }
+
+        .slide {
+            min-width: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Contenedor de la foto con proporción estética */
+        .slide-img-container {
+            width: 100%;
+            height: 480px; /* Tamaño ideal para retratos de clientes/perfumes */
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Recorta la imagen elegantemente para llenar el espacio */
+            transition: transform 0.8s ease;
+        }
+
+        .slide:hover img {
+            transform: scale(1.03);
+        }
+
+        /* Pie de foto de la opinión del cliente */
+        .slide-caption {
+            width: 100%;
+            padding: 20px 40px;
+            background: linear-gradient(to top, rgba(8, 8, 8, 1) 0%, rgba(8, 8, 8, 0.85) 70%, transparent 100%);
+            text-align: center;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        .slide-caption p {
+            font-size: 1rem;
+            color: #fff;
+            font-style: italic;
+            margin-bottom: 6px;
+            line-height: 1.4;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+
+        .slide-caption span {
+            font-size: 0.8rem;
+            color: #D4AF37;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+        }
+
+        /* Botones del Carrusel (Flechas) */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(8, 8, 8, 0.65);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            color: #D4AF37;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 10;
+            backdrop-filter: blur(5px);
+        }
+
+        .carousel-btn:hover {
+            background: #D4AF37;
+            color: #111;
+            border-color: #D4AF37;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+        }
+
+        .prev-btn { left: 15px; }
+        .next-btn { right: 15px; }
+
+        /* Puntos Indicadores (Dots) */
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.25);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .dot.active {
+            background: #D4AF37;
+            transform: scale(1.2);
+            box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+        }
+
+        /* 🌟 NOTIFICACIÓN FLOTANTE PREMIUM OPTIMIZADA PARA GOOGLE SITES (Top-Center) */
+        .toast-notificacion {
+            position: fixed;
+            top: 130px; /* Ajustada para no colisionar con el nuevo banner */
+            left: 50%;
+            transform: translate(-50%, -150px); /* Escondido arriba */
+            background: rgba(17, 17, 17, 0.95);
+            color: #fff;
+            border: 1px solid #D4AF37;
+            padding: 12px 25px;
+            border-radius: 30px; /* Estilo píldora elegante */
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.35);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(10px);
+            white-space: nowrap;
+            opacity: 0;
+        }
+
+        .toast-notificacion.show {
+            transform: translate(-50%, 0); /* Baja elegantemente */
+            opacity: 1;
+        }
+
+        .toast-icon {
+            color: #D4AF37;
+            font-size: 1.2rem;
+        }
+
+        /* 💎 APARTADO DE PIE DE PÁGINA CON REDES Y ENVÍOS */
+        .footer-premium {
+            background: rgba(8, 8, 8, 0.95);
+            border-top: 1px solid rgba(212, 175, 55, 0.25);
+            padding: 50px 20px 40px 20px;
+            text-align: center;
+            margin-top: 60px;
+            backdrop-filter: blur(10px);
+        }
+
+        .footer-brand {
+            font-size: 1.6rem;
+            color: #D4AF37;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        .footer-tagline {
+            font-size: 0.85rem;
+            color: #888;
+            font-style: italic;
+            margin-bottom: 30px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Bloque Informativo de Envíos en Footer */
+        .shipping-info-footer {
+            max-width: 500px;
+            margin: 0 auto 35px auto;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            padding: 20px 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .shipping-footer-item {
+            font-size: 0.9rem;
+            color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .shipping-footer-item strong {
+            color: #D4AF37;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .social-icons-container {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin-bottom: 35px;
+        }
+
+        /* Botones de Redes Sociales */
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            background: rgba(17, 17, 17, 0.8);
+            color: #D4AF37;
+            transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .social-btn:hover {
+            background: #D4AF37;
+            color: #080808;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.35);
+            border-color: #D4AF37;
+        }
+
+        .social-btn svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+            transition: fill 0.35s ease;
+            flex-shrink: 0;
+        }
+
+        .copyright {
+            font-size: 0.75rem;
+            color: #555;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 25px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo" style="font-weight: bold; font-size: 1.5rem; color: #D4AF37; letter-spacing: 2px;">decantAMS</div>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#catalogo">Catálogo</a></li>
+            <li><a href="#gorras">Gorras</a></li>
+            <li><a href="#carrito" id="cart-nav-link">Carrito <span id="cart-count" class="contador-carrito">0</span></a></li>
+            <li><a href="#clientes">Clientes</a></li>
+        </ul>
+    </nav>
+
+    <div class="shipping-bar">
+        <div class="shipping-item">
+            <span>✈️</span> Envíos a todo México
+        </div>
+        <div class="shipping-item" style="border-left: 1px solid rgba(212,175,55,0.3); padding-left: 20px;">
+            <span>📍</span> Entregas locales en zonas cercanas
+        </div>
+    </div>
+
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <div class="brand-logo-container">
+                <img src="https://i.postimg.cc/9zHMMvtK/DECANTAMS.jpg" alt="decantAMS Logo" class="brand-logo">
+            </div>
+            <p class="quote">"El perfume es la forma más intensa del recuerdo"</p>
+            <h1>Descubre tu fragancia ideal</h1>
+            <a href="#catalogo" class="btn">Ver Catálogo</a>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE PERFUMES (CATÁLOGO) -->
+    <section id="catalogo">
+        <h2>Nuestros Decants</h2>
+        <div class="productos-grid">
+            
+            <div class="card" data-tipo="perfume" data-nombre="Mandarin sky">
+                <img src="https://i.postimg.cc/Y2gc74ZH/Mandsrin-sky.png" alt="Mandarin sky">
+                <h3>Mandarin sky</h3>
+                <div class="perfume-detalles">
+                    <span class="familia">Cítrica Especiada</span>
+                    <p class="notes">🍊 Mandarina, Azafrán, Caramelo</p>
+                    <span class="etiqueta-uso">✨ Uso: Noche / Eventos Especiales</span>
+                </div>
+                <div class="medidas-container">
+                    <button class="medida-btn active" data-size="5ml" data-price="85">5ml</button>
+                    <button class="medida-btn" data-size="10ml" data-price="150">10ml</button>
+                </div>
+                <div class="precio-dinamico">$85.00</div>
+                <button class="btn-agregar">Agregar al Carrito</button>
+            </div>
+
+            <div class="card" data-tipo="perfume" data-nombre="Bharara king soleil">
+                <img src="https://i.postimg.cc/5NR8m09v/Bharara.png" alt="Bharara king soleil">
+                <h3>Bharara king soleil</h3>
+                <div class="perfume-detalles">
+                    <span class="familia">Cítrica Ámbar</span>
+                    <p class="notes">🍋 Limón, Bergamota, Ámbar Cálido</p>
+                    <span class="etiqueta-uso">☀️ Uso: Diario / Clima Cálido</span>
+                </div>
+                <div class="medidas-container">
+                    <button class="medida-btn active" data-size="5ml" data-price="85">5ml</button>
+                    <button class="medida-btn" data-size="10ml" data-price="150">10ml</button>
+                </div>
+                <div class="precio-dinamico">$85.00</div>
+                <button class="btn-agregar">Agregar al Carrito</button>
+            </div>
+
+            <div class="card" data-tipo="perfume" data-nombre="Ramz gold">
+                <img src="https://i.postimg.cc/DzdWRyhL/Ramz_gold.png" alt="Ramz gold">
+                <h3>Ramz gold</h3>
+                <div class="perfume-detalles">
+                    <span class="familia">Ámbar Floral</span>
+                    <p class="notes">🪵 Notas Dulces, Sándalo, Madera</p>
+                    <span class="etiqueta-uso">🍂 Uso: Otoño / Clima Templado</span>
+                </div>
+                <div class="medidas-container">
+                    <button class="medida-btn active" data-size="5ml" data-price="65">5ml</button>
+                    <button class="medida-btn" data-size="10ml" data-price="100">10ml</button>
+                </div>
+                <div class="precio-dinamico">$65.00</div>
+                <button class="btn-agregar">Agregar al Carrito</button>
+            </div>
+
+            <div class="card" data-tipo="perfume" data-nombre="Ramz silver">
+                <img src="https://i.postimg.cc/3wH4L0sX/Ramz_silver.png" alt="Ramz silver">
+                <h3>Ramz silver</h3>
+                <div class="perfume-detalles">
+                    <span class="familia">Ámbar Vainilla</span>
+                    <p class="notes">🍦 Vainilla Dulce, Lavanda, Menta</p>
+                    <span class="etiqueta-uso">❄️ Uso: Noche / Citas / Invierno</span>
+                </div>
+                <div class="medidas-container">
+                    <button class="medida-btn active" data-size="5ml" data-price="65">5ml</button>
+                    <button class="medida-btn" data-size="10ml" data-price="100">10ml</button>
+                </div>
+                <div class="precio-dinamico">$65.00</div>
+                <button class="btn-agregar">Agregar al Carrito</button>
+            </div>
+
+            <div class="card" data-tipo="perfume" data-nombre="Odyssey aoud">
+                <img src="https://i.postimg.cc/DzdWRyhP/Oddysey_aoud.png" alt="Odyssey aoud">
+                <h3>Odyssey aoud</h3>
+                <div class="perfume-detalles">
+                    <span class="familia">Amaderada Oud</span>
+                    <p class="notes">🪵 Oud Misterioso, Azafrán, Pachulí</p>
+                    <span class="etiqueta-uso">🎩 Uso: Formal / Noche de Gala</span>
+                </div>
+                <div class="medidas-container">
+                    <button class="medida-btn active" data-size="5ml" data-price="80">5ml</button>
+                    <button class="medida-btn" data-size="10ml" data-price="140">10ml</button>
+                </div>
+                <div class="precio-dinamico">$80.00</div>
+                <button class="btn-agregar">Agregar al Carrito</button>
+            </div>
+
+            <div class="card" data-tipo="perfume" data-nombre="Odyssey wild one gold">
+                <img src="https://i.postimg.cc/jjQWBdTc/Oddysey_wild.png" alt="Odyssey wild one gold">
+                <h3>Odyssey wild one gold</h3>
+                <div class="perfume-detalles">
+                    <span class="familia">Fougère Especiado</span>
+                    <p class="notes">🌶️ Pimienta, Lavanda, Vetiver Terroso</p>
+                    <span class="etiqueta-uso">⚡ Uso: Firma / Carácter Fuerte</span>
+                </div>
+                <div class="medidas-container">
+                    <button class="medida-btn active" data-size="5ml" data-price="80">5ml</button>
+                    <button class="medida-btn" data-size="10ml" data-price="140">10ml</button>
+                </div>
+                <div class="precio-dinamico">$80.00</div>
+                <button class="btn-agregar">Agregar al Carrito</button>
+            </div>
+
+            <div class="card" data-tipo="perfume" data-nombre="Club de nuit intense">
+                <img src="https://i.postimg.cc/9ft4sF2y/Cdn_intense.png" alt="Club de nuit intense">
+                <h3>Club de nuit intense</h3>
+                <div class="perfume-detalles">
+                    <span class="familia">Amaderada Cítrica</span>
+                    <p class="notes">🍍 Piña Ahumada, Limón, Abedul</p>
+                    <span class="etiqueta-uso">🔥 Uso: Conquista / Extremadamente Halagado</span>
+                </div>
+                <div class="medidas-container">
+                    <button class="medida-btn active" data-size="5ml" data-price="85">5ml</button>
+                    <button class="medida-btn" data-size="10ml" data-price="150">10ml</button>
+                </div>
+                <div class="precio-dinamico">$85.00</div>
+                <button class="btn-agregar">Agregar al Carrito</button>
+            </div>
+
+            <div class="card" data-tipo="perfume" data-nombre="Club de nuit sillage">
+                <img src="https://i.postimg.cc/1zcgb5Sc/CDN_SILLAGE.png" alt="Club de nuit sillage">
+                <h3>Club de nuit sillage</h3>
+                <div class="perfume-detalles">
+                    <span class="familia">Almizcle Floral</span>
+                    <p class="notes">❄️ Grosellas Negras, Bergamota, Sándalo</p>
+                    <span class="etiqueta-uso">👔 Uso: Oficina / Elegancia Limpia</span>
+                </div>
+                <div class="medidas-container">
+                    <button class="medida-btn active" data-size="5ml" data-price="85">5ml</button>
+                    <button class="medida-btn" data-size="10ml" data-price="150">10ml</button>
+                </div>
+                <div class="precio-dinamico">$85.00</div>
+                <button class="btn-agregar">Agregar al Carrito</button>
+            </div>
+
+            <div class="card" data-tipo="perfume" data-nombre="Tubbees strawberry">
+                <img src="https://i.postimg.cc/TPXLk5zD/Strowberry.png" alt="Tubbees strawberry">
+                <h3>Tubbees strawberry</h3>
+                <div class="perfume-detalles">
+                    <span class="familia">Gourmand Dulce</span>
+                    <p class="notes">🍓 Fresa Cremosa, Crema Batida, Vainilla</p>
+                    <span class="etiqueta-uso">🍭 Uso: Casual / Salidas Divertidas</span>
+                </div>
+                <div class="medidas-container">
+                    <button class="medida-btn active" data-size="5ml" data-price="60">5ml</button>
+                    <button class="medida-btn" data-size="10ml" data-price="100">10ml</button>
+                </div>
+                <div class="precio-dinamico">$60.00</div>
+                <button class="btn-agregar">Agregar al Carrito</button>
+            </div>
+
+            <div class="card" data-tipo="perfume" data-nombre="Tubbees cookies & cream">
+                <img src="https://i.postimg.cc/bvjD6S79/Cookies.png" alt="Tubbees cookies&cream">
+                <h3>Tubbees cookies & cream</h3>
+                <div class="perfume-detalles">
+                    <span class="familia">Gourmand Extremo</span>
+                    <p class="notes">🍪 Galleta de Chocolate, Crema Dulce</p>
+                    <span class="etiqueta-uso">🍫 Uso: Informal / Amantes de lo Dulce</span>
+                </div>
+                <div class="medidas-container">
+                    <button class="medida-btn active" data-size="5ml" data-price="60">5ml</button>
+                    <button class="medida-btn" data-size="10ml" data-price="100">10ml</button>
+                </div>
+                <div class="precio-dinamico">$60.00</div>
+                <button class="btn-agregar">Agregar al Carrito</button>
+            </div>
+
+            <div class="card" data-tipo="perfume" data-nombre="Rave now woman">
+                <img src="https://i.postimg.cc/R0z6PJk1/Rave_now.png" alt="Rave now woman">
+                <h3>Rave now woman</h3>
+                <div class="perfume-detalles">
+                    <span class="familia">Floral Frutal</span>
+                    <p class="notes">🍓 Frutos Rojos, Malvavisco, Almizcle</p>
+                    <span class="etiqueta-uso">👗 Uso: Diario / Coqueto y Femenino</span>
+                </div>
+                <div class="medidas-container">
+                    <button class="medida-btn active" data-size="5ml" data-price="80">5ml</button>
+                    <button class="medida-btn" data-size="10ml" data-price="140">10ml</button>
+                </div>
+                <div class="precio-dinamico">$80.00</div>
+                <button class="btn-agregar">Agregar al Carrito</button>
+            </div>
+
+            <div class="card" data-tipo="perfume" data-nombre="Fakhar rose">
+                <img src="https://i.postimg.cc/jjrw8npQ/Fakhar_rose.png" alt="Fakhar rose">
+                <h3>Fakhar rose</h3>
+                <div class="perfume-detalles">
+                    <span class="familia">Floral Dulce</span>
+                    <p class="notes">🌹 Rosa, Jazmín, Gardenia, Vainilla</p>
+                    <span class="etiqueta-uso">💍 Uso: Elegante / Eventos de Día</span>
+                </div>
+                <div class="medidas-container">
+                    <button class="medida-btn active" data-size="5ml" data-price="80">5ml</button>
+                    <button class="medida-btn" data-size="10ml" data-price="140">10ml</button>
+                </div>
+                <div class="precio-dinamico">$80.00</div>
+                <button class="btn-agregar">Agregar al Carrito</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE GORRAS -->
+    <section id="gorras">
+        <h2>Gorras Exclusivas</h2>
+        <div class="productos-grid">
+            
+            <div class="card" data-tipo="gorra" data-nombre="BARBASHATS CR*ME">
+                <img src="https://i.postimg.cc/wBqHTDZ0/BARBASCRM.jpg" alt="BARBASHATS CR*ME">
+                <h3>BARBASHATS CR*ME</h3>
+                <div class="perfume-detalles">
+                    <span class="familia">Streetwear</span>
+                    <p class="notes">🧢 Broche ajustable, diseño minimalista</p>
+                    <span class="etiqueta-uso">🔥 Estilo: Diario / Outfits Exclusivos</span>
+                </div>
+                <div class="medidas-container">
+                    <button class="medida-btn active" data-size="Unitalla" data-price="750">Unitalla</button>
+                </div>
+                <div class="precio-dinamico">$750.00</div>
+                <button class="btn-agregar">Agregar al Carrito</button>
+            </div>
+
+            <div class="card" data-tipo="gorra" data-nombre="BARBASHATS BCROSS">
+                <img src="https://i.postimg.cc/Sx7khgTG/BARBASBCRS.jpg" alt="BARBASHATS BCROSS">
+                <h3>BARBASHATS BCROSS</h3>
+                <div class="perfume-detalles">
+                    <span class="familia">Streetwear</span>
+                    <p class="notes">👑 Logo bordado con pedreria</p>
+                    <span class="etiqueta-uso">✨ Estilo: Salidas / Noche</span>
+                </div>
+                <div class="medidas-container">
+                    <button class="medida-btn active" data-size="Unitalla" data-price="750">Unitalla</button>
+                </div>
+                <div class="precio-dinamico">$750.00</div>
+                <button class="btn-agregar">Agregar al Carrito</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECCIÓN DEL CARRITO -->
+    <section id="carrito">
+        <h2>Tu Carrito de Compras</h2>
+        <div class="carrito-container">
+            <div id="elementos-carrito">
+                <p style="text-align: center; color: #ccc;">Tu carrito está vacío.</p>
+            </div>
+            <div class="total-carrito">Total: $<span id="precio-total">0.00</span></div>
+            
+            <a href="#" id="whatsapp-link" class="btn-whatsapp" target="_blank" style="display: none;">
+                <svg viewBox="0 0 448 512">
+                    <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L32 503l138.9-36.4c32.6 17.8 69 27.2 106.4 27.2 122.4 0 222-99.6 222-222 0-59.3-23-115.1-65-157.1zM223.9 459c-33.2 0-65.7-8.9-94-25.7l-6.7-4-82.5 21.6 22-80.5-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 54 81.2 54 130.4 0 101.7-82.8 184.5-184.6 184.5zm100.5-137.5c-5.5-2.7-32.6-16.1-37.7-17.9-5.1-1.9-8.8-2.7-12.5 2.8-3.7 5.5-14.3 17.9-17.6 21.6-3.2 3.7-6.5 4.1-12 1.4-15-7.5-27.4-12.8-39.3-21.9-30-22.9-46.3-51.6-47.4-56.5-1.1-4.9 1.1-7.7 3.5-10.3 2.1-2.2 4.6-5.4 7-8.1 2.4-2.7 3.2-4.6 4.9-7.8 1.6-3.2 .8-6-1.6-11.5-2.4-5.5-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.5-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.6-13.4 37.2-26.3 4.6-13 4.6-24.1 3.2-26.4-1.3-2.3-5-3.7-10.5-6.5z"/>
+                </svg>
+                Finalizar Pedido
+            </a>
+        </div>
+    </section>
+
+    <!-- 📸 NUEVA UBICACIÓN: SECCIÓN NUESTROS CLIENTES -->
+    <section id="clientes">
+        <h2>Nuestros Clientes</h2>
+        <div class="clientes-container">
+            <!-- Botones de Navegación -->
+            <button class="carousel-btn prev-btn" onclick="cambiarSlide(-1)">&#10094;</button>
+            <button class="carousel-btn next-btn" onclick="cambiarSlide(1)">&#10095;</button>
+
+            <!-- Slides del Carrusel -->
+            <div class="carousel-slides" id="carousel-slides">
+                
+                <!-- Slide 1 -->
+                <div class="slide">
+                    <div class="slide-img-container">
+                        <!-- IMPORTANTE: Reemplaza este link de Postimg con la foto real de tu cliente -->
+                        <img src="https://i.postimg.cc/cChWjTXp/Gorrita.jpg" alt="Cliente Satisfecho 1">
+                    </div>
+                    <div class="slide-caption">
+                        <p>"Excelente atención y la gorra en perfecto estado estado nuevo"</p>
+                        <span>— anonimo (calimaya)</span>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="slide">
+                    <div class="slide-img-container">
+                        <!-- IMPORTANTE: Reemplaza este link de Postimg con la foto real de tu cliente -->
+                        <img src="https://i.postimg.cc/VvgwT4Kc/Decant1.jpg" alt="Cliente Satisfecho 2">
+                    </div>
+                    <div class="slide-caption">
+                        <p>"Los decants son originales y huelen muy rico ademas de su duración muy buena atencion."</p>
+                        <span>— Jessica N. (Calimaya)</span>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="slide">
+                    <div class="slide-img-container">
+                        <!-- IMPORTANTE: Reemplaza este link de Postimg con la foto real de tu cliente -->
+                        <img src="https://i.postimg.cc/hvsnwMp2/Decabt2.jpg" alt="Cliente Satisfecho 3">
+                    </div>
+                    <div class="slide-caption">
+                        <p>"Muy buenos productos todo original y a buen precio. ¡Súper recomendados!"</p>
+                        <span>— Edgar. (Toluca)</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Puntos Indicadores del Carrusel -->
+        <div class="carousel-dots" id="carousel-dots">
+            <span class="dot active" onclick="irASlide(0)"></span>
+            <span class="dot" onclick="irASlide(1)"></span>
+            <span class="dot" onclick="irASlide(2)"></span>
+        </div>
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="footer-premium">
+        <div class="footer-brand">decantAMS</div>
+        <div class="footer-tagline">El arte de vestir una fragancia</div>
+
+        <div class="shipping-info-footer">
+            <div class="shipping-footer-item">
+                <strong>✈️ Envíos:</strong> Hacemos envíos 100% seguros a todo México.
+            </div>
+            <div class="shipping-footer-item">
+                <strong>📍 Entregas:</strong> Puntos de entrega local y zonas cercanas.
+            </div>
+        </div>
+        
+        <div class="social-icons-container">
+            <a href="https://www.tiktok.com/@decantams" target="_blank" class="social-btn" title="Síguenos en TikTok">
+                <svg viewBox="0 0 448 512">
+                    <path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.17v82.35a80.16,80.16,0,1,0,37.8,67.79V0h82.15a139.77,139.77,0,0,0,13.91,57.14A141.13,141.13,0,0,0,448,109.43Z"/>
+                </svg>
+            </a>
+
+            <!-- ICONO DE INSTAGRAM CORREGIDO Y AGREGADO -->
+            <a href="https://www.instagram.com/decantams" target="_blank" class="social-btn" title="Síguenos en Instagram">
+                <svg viewBox="0 0 448 512">
+                    <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7 0-41.1 33.5-74.7 74.7-74.7 41.1 0 74.7 33.5 74.7 74.7 0 41.1-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+                </svg>
+            </a>
+        </div>
+        <div class="copyright">
+            &copy; 2026 decantAMS. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <!-- NOTIFICACIÓN DE TOAST -->
+    <div id="toast" class="toast-notificacion">
+        <span class="toast-icon">✨</span>
+        <span id="toast-mensaje">Producto agregado</span>
+    </div>
+
+    <!-- CÓDIGO JAVASCRIPT ROBUSTO -->
+    <script>
+        let carrito = [];
+
+        // Variables globales para el carrusel de clientes
+        let currentSlide = 0;
+        let slideInterval;
+        const slides = document.getElementById('carousel-slides');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = document.querySelectorAll('.slide').length;
+
+        // Aseguramos que el DOM esté completamente cargado para inicializar las acciones
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // ==========================================
+            // FIX: Navegación Forzada para Google Sites
+            // ==========================================
+            document.querySelectorAll('nav a, .hero-content .btn').forEach(enlace => {
+                enlace.addEventListener('click', (e) => {
+                    const destinoId = enlace.getAttribute('href');
+                    
+                    if (destinoId && destinoId.startsWith('#')) {
+                        e.preventDefault();
+                        
+                        const seccion = document.querySelector(destinoId);
+                        if (seccion) {
+                            seccion.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    }
+                });
+            });
+
+            // 1. Manejo de botones de tamaño (5ml / 10ml) en perfumes
+            document.querySelectorAll('.medidas-container').forEach(container => {
+                container.addEventListener('click', (e) => {
+                    const btn = e.target.closest('.medida-btn');
+                    if (!btn) return;
+
+                    const btns = container.querySelectorAll('.medida-btn');
+                    btns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const card = container.closest('.card');
+                    if (card && card.getAttribute('data-tipo') === 'perfume') {
+                        const precio = btn.getAttribute('data-price');
+                        const precioDinamico = card.querySelector('.precio-dinamico');
+                        
+                        precioDinamico.classList.add('precio-cambio');
+                        setTimeout(() => {
+                            precioDinamico.innerText = `$${precio}.00`;
+                            precioDinamico.classList.remove('precio-cambio');
+                        }, 200);
+                    }
+                });
+            });
+
+            // 2. Manejo unificado de clics en el botón de "Agregar al Carrito"
+            document.querySelectorAll('.btn-agregar').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const card = e.target.closest('.card');
+                    if (!card) return;
+
+                    const nombre = card.getAttribute('data-nombre');
+                    const tipo = card.getAttribute('data-tipo');
+                    
+                    const btnActivo = card.querySelector('.medida-btn.active');
+                    const medida = btnActivo ? btnActivo.getAttribute('data-size') : 'Unitalla';
+                    const precio = btnActivo ? parseFloat(btnActivo.getAttribute('data-price')) : 750;
+
+                    agregarAlCarrito(nombre, medida, precio);
+                    mostrarToast(`¡${nombre} (${medida}) agregado!`);
+                    animarIconoCarrito();
+                });
+            });
+
+            // 3. Inicializar auto-reproducción del carrusel de clientes
+            startSlideShow();
+        });
+
+        // ==========================================
+        // FUNCIONES DEL CARRUSEL DE CLIENTES
+        // ==========================================
+        function actualizarCarrusel() {
+            // Mueve la tira de diapositivas según la posición actual
+            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Actualiza los puntos indicadores (dots)
+            dots.forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        function cambiarSlide(direccion) {
+            resetSlideShow(); // Reinicia el temporizador si el usuario interactúa
+            currentSlide += direccion;
+            
+            if (currentSlide >= totalSlides) {
+                currentSlide = 0;
+            } else if (currentSlide < 0) {
+                currentSlide = totalSlides - 1;
+            }
+            actualizarCarrusel();
+        }
+
+        function irASlide(index) {
+            resetSlideShow(); // Reinicia el temporizador
+            currentSlide = index;
+            actualizarCarrusel();
+        }
+
+        function startSlideShow() {
+            slideInterval = setInterval(() => {
+                cambiarSlide(1);
+            }, 4000); // Cambia cada 4 segundos
+        }
+
+        function resetSlideShow() {
+            clearInterval(slideInterval);
+            startSlideShow();
+        }
+
+        // ==========================================
+        // FUNCIONES INTERNAS DEL CARRUSEL
+        // ==========================================
+        function agregarAlCarrito(nombre, medida, precio) {
+            const itemExistente = carrito.find(item => item.nombre === nombre && item.medida === medida);
+            
+            if (itemExistente) {
+                itemExistente.cantidad += 1;
+            } else {
+                carrito.push({ nombre, medida, precio, cantidad: 1 });
+            }
+            actualizarCarritoUI();
+        }
+
+        function eliminarDelCarrito(index) {
+            carrito.splice(index, 1);
+            actualizarCarritoUI();
+        }
+
+        function actualizarCarritoUI() {
+            const contenedor = document.getElementById('elementos-carrito');
+            const precioTotalSpan = document.getElementById('precio-total');
+            const cartCountSpan = document.getElementById('cart-count');
+            const whatsappLink = document.getElementById('whatsapp-link');
+
+            if (carrito.length === 0) {
+                contenedor.innerHTML = '<p style="text-align: center; color: #ccc;">Tu carrito está vacío.</p>';
+                precioTotalSpan.innerText = '0.00';
+                cartCountSpan.innerText = '0';
+                whatsappLink.style.display = 'none';
+                return;
+            }
+
+            contenedor.innerHTML = '';
+            let total = 0;
+            let totalCantidad = 0;
+
+            carrito.forEach((item, index) => {
+                const subtotal = item.precio * item.cantidad;
+                total += subtotal;
+                totalCantidad += item.cantidad;
+
+                const div = document.createElement('div');
+                div.className = 'item-carrito';
+                div.innerHTML = `
+                    <div>
+                        <strong>${item.nombre}</strong> (${item.medida}) x${item.cantidad}
+                        <br><span style="color: #D4AF37; font-size: 0.9rem;">$${subtotal.toFixed(2)}</span>
+                    </div>
+                    <button onclick="eliminarDelCarrito(${index})">Quitar</button>
+                `;
+                contenedor.appendChild(div);
+            });
+
+            precioTotalSpan.innerText = total.toFixed(2);
+            cartCountSpan.innerText = totalCantidad;
+
+            // Enlace de WhatsApp para mandar el pedido
+            let mensaje = `Hola decantAMS, me interesa realizar un pedido de los siguientes artículos:\n\n`;
+            carrito.forEach(item => {
+                mensaje += `- ${item.nombre} (${item.medida}) x${item.cantidad} - $${(item.precio * item.cantidad).toFixed(2)}\n`;
+            });
+            mensaje += `\n*Total a pagar: $${total.toFixed(2)}*`;
+            
+            whatsappLink.href = `https://wa.me/5217226772484?text=${encodeURIComponent(mensaje)}`;
+            whatsappLink.style.display = 'flex';
+        }
+
+        function mostrarToast(mensaje) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-mensaje').innerText = mensaje;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        function animarIconoCarrito() {
+            const count = document.getElementById('cart-count');
+            count.classList.add('animar-carrito');
+            setTimeout(() => {
+                count.classList.remove('animar-carrito');
+            }, 400);
+        }
+    </script>
+</body>
+</html>
