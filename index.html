@@ -1136,6 +1136,80 @@
         <span id="toast-mensaje">Producto agregado</span>
     </div>
 
+    <!-- SECCIÓN DE CHECKOUT PREMIUM PREMIUM -->
+<section id="checkout-decant" style="background: #0d0d0d; color: #fff; padding: 40px 20px; font-family: sans-serif; max-width: 500px; margin: 40px auto; border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+    
+    <h2 style="color: #D4AF37; text-align: center; font-size: 22px; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px;">Datos de Entrega</h2>
+    <p style="color: #888; text-align: center; font-size: 13px; margin-bottom: 25px;">Completa tu información para coordinar el pago y envío</p>
+
+    <form id="form-pedido" onsubmit="enviarPedidoWhatsApp(event)">
+        <!-- Datos de Contacto -->
+        <div style="margin-bottom: 15px;">
+            <label style="display:block; font-size: 12px; color: #aaa; margin-bottom: 5px; text-transform: uppercase;">Nombre Completo *</label>
+            <input type="text" id="chk-nombre" required style="width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; border-radius: 6px; color: #fff; box-sizing: border-box; outline: none; transition: 0.3s;" onfocus="this.style.borderColor='#D4AF37'">
+        </div>
+
+        <div style="margin-bottom: 15px;">
+            <label style="display:block; font-size: 12px; color: #aaa; margin-bottom: 5px; text-transform: uppercase;">Teléfono Celular *</label>
+            <input type="tel" id="chk-telefono" required placeholder="Ej. 5512345678" style="width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; border-radius: 6px; color: #fff; box-sizing: border-box; outline: none;" onfocus="this.style.borderColor='#D4AF37'">
+        </div>
+
+        <!-- Dirección de Envío -->
+        <div style="margin-bottom: 15px;">
+            <label style="display:block; font-size: 12px; color: #aaa; margin-bottom: 5px; text-transform: uppercase;">Dirección (Calle y Número) *</label>
+            <input type="text" id="chk-direccion" required style="width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; border-radius: 6px; color: #fff; box-sizing: border-box; outline: none;" onfocus="this.style.borderColor='#D4AF37'">
+        </div>
+
+        <div style="grid-template-columns: 1fr 1fr; gap: 10px; display: grid; margin-bottom: 15px;">
+            <div>
+                <label style="display:block; font-size: 12px; color: #aaa; margin-bottom: 5px; text-transform: uppercase;">Estado *</label>
+                <input type="text" id="chk-estado" required placeholder="Ej. CDMX, EdoMex" style="width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; border-radius: 6px; color: #fff; box-sizing: border-box; outline: none;" onfocus="this.style.borderColor='#D4AF37'">
+            </div>
+            <div>
+                <label style="display:block; font-size: 12px; color: #aaa; margin-bottom: 5px; text-transform: uppercase;">Código Postal *</label>
+                <input type="text" id="chk-cp" required style="width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; border-radius: 6px; color: #fff; box-sizing: border-box; outline: none;" onfocus="this.style.borderColor='#D4AF37'">
+            </div>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid rgba(212, 175, 55, 0.2); margin: 25px 0;">
+
+        <!-- Métodos de Pago Propios -->
+        <h3 style="color: #D4AF37; font-size: 16px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.5px;">Método de Pago</h3>
+        
+        <div style="background: #141414; border: 1px solid #222; border-radius: 8px; padding: 5px;">
+            <label style="display: flex; align-items: center; padding: 12px; cursor: pointer; border-bottom: 1px solid #222;">
+                <input type="radio" name="metodo-pago" value="Transferencia Interbancaria (SPEI)" checked style="margin-right: 12px; accent-color: #D4AF37;">
+                <div>
+                    <span style="font-size: 14px; font-weight: bold; display: block;">Transferencia SPEI</span>
+                    <span style="font-size: 12px; color: #777;">Banca móvil (Se solicita comprobante)</span>
+                </div>
+            </label>
+
+            <label style="display: flex; align-items: center; padding: 12px; cursor: pointer; border-bottom: 1px solid #222;">
+                <input type="radio" name="metodo-pago" value="Depósito OXXO / Ventanilla" style="margin-right: 12px; accent-color: #D4AF37;">
+                <div>
+                    <span style="font-size: 14px; font-weight: bold; display: block;">Depósito OXXO</span>
+                    <span style="font-size: 12px; color: #777;">Efectivo en tiendas de conveniencia</span>
+                </div>
+            </label>
+
+            <label style="display: flex; align-items: center; padding: 12px; cursor: pointer;">
+                <input type="radio" name="metodo-pago" value="Efectivo (Entrega Personal)" style="margin-right: 12px; accent-color: #D4AF37;">
+                <div>
+                    <span style="font-size: 14px; font-weight: bold; display: block;">Efectivo en Persona</span>
+                    <span style="font-size: 12px; color: #777;">Solo aplica para entregas acordadas</span>
+                </div>
+            </label>
+        </div>
+
+        <!-- Botón de Envío Metálico -->
+        <button type="submit" style="width: 100%; background: linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%); color: #000; border: none; padding: 15px; margin-top: 25px; border-radius: 8px; font-size: 15px; font-weight: bold; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.boxShadow='0 0 15px rgba(212, 175, 55, 0.4)'" onmouseout="this.style.boxShadow='none'" onmousedown="this.style.transform='scale(0.98)'" onmouseup="this.style.transform='scale(1)'">
+            Confirmar Pedido por WhatsApp 📱
+        </button>
+    </form>
+</section>
+
+     
     <script>
         let carrito = [];
 
@@ -1347,6 +1421,40 @@
                 count.classList.remove('animar-carrito');
             }, 400);
         }
+
+         function enviarPedidoWhatsApp(event) {
+    event.preventDefault(); // Evita que la página se recargue
+
+    // Tu número de WhatsApp (Pon el tuyo aquí con código de país, ej: 52 para México + 10 dígitos)
+    const tuTelefonoWhatsApp = "5217226772484"; 
+
+    // Obtener valores de las cajas de texto
+    const nombre = document.getElementById('chk-nombre').value;
+    const telefonoCliente = document.getElementById('chk-telefono').value;
+    const direccion = document.getElementById('chk-direccion').value;
+    const estado = document.getElementById('chk-estado').value;
+    const cp = document.getElementById('chk-cp').value;
+    const metodoPago = document.querySelector('input[name="metodo-pago"]:checked').value;
+
+    // Redactar el mensaje de forma ultra ordenada y limpia
+    const mensaje = encodeURIComponent(
+        `✨ *NUEVO PEDIDO - decantAMS* ✨\n\n` +
+        `👤 *Cliente:* ${nombre}\n` +
+        `📱 *Teléfono:* ${telefonoCliente}\n\n` +
+        `📍 *DATOS DE ENVÍO:*\n` +
+        `• *Dirección:* ${direccion}\n` +
+        `• *Estado:* ${estado}\n` +
+        `• *C.P.:* ${cp}\n\n` +
+        `💳 *MÉTODO DE PAGO:*\n` +
+        `• ${metodoPago}\n\n` +
+        `_Hola, quiero confirmar los detalles de pago y el total de mi fragancia._`
+    );
+
+    // Crear la URL de WhatsApp y redirigir
+    const urlWhatsApp = `https://api.whatsapp.com/send?phone=${tuTelefonoWhatsApp}&text=${mensaje}`;
+    window.open(urlWhatsApp, '_blank');
+}
+
     </script>
 </body>
 </html>
