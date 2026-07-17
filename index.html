@@ -1042,13 +1042,83 @@
             </div>
             <div class="total-carrito">Total: $<span id="precio-total">0.00</span></div>
             
-            <a href="#" id="whatsapp-link" class="btn-whatsapp" target="_blank" style="display: none;">
-                <svg viewBox="0 0 448 512">
-                    <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L32 503l138.9-36.4c32.6 17.8 69 27.2 106.4 27.2 122.4 0 222-99.6 222-222 0-59.3-23-115.1-65-157.1zM223.9 459c-33.2 0-65.7-8.9-94-25.7l-6.7-4-82.5 21.6 22-80.5-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 54 81.2 54 130.4 0 101.7-82.8 184.5-184.6 184.5zm100.5-137.5c-5.5-2.7-32.6-16.1-37.7-17.9-5.1-1.9-8.8-2.7-12.5 2.8-3.7 5.5-14.3 17.9-17.6 21.6-3.2 3.7-6.5 4.1-12 1.4-15-7.5-27.4-12.8-39.3-21.9-30-22.9-46.3-51.6-47.4-56.5-1.1-4.9 1.1-7.7 3.5-10.3 2.1-2.2 4.6-5.4 7-8.1 2.4-2.7 3.2-4.6 4.9-7.8 1.6-3.2 .8-6-1.6-11.5-2.4-5.5-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.5-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.6-13.4 37.2-26.3 4.6-13 4.6-24.1 3.2-26.4-1.3-2.3-5-3.7-10.5-6.5z"/>
-                </svg>
+            <!-- Botón de Redirección Interna Premium -->
+            <button id="btn-proceder-pago" onclick="irAlCheckout()" style="display: none; width: 100%; padding: 15px; background: linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%); color: #000; font-weight: bold; border: none; border-radius: 30px; cursor: pointer; text-transform: uppercase; letter-spacing: 1.5px; font-size: 1rem; transition: all 0.3s ease;">
+                Proceder al Pago / Datos de Envío 📦
+            </button>
+
+            <!-- Enlace viejo oculto para no alterar funciones previas -->
+            <a href="#" id="whatsapp-link" class="btn-whatsapp" target="_blank" style="display: none !important;">
                 Finalizar Pedido
             </a>
         </div>
+    </section>
+
+    <section id="checkout-decant" style="background: #0d0d0d; color: #fff; padding: 40px 20px; font-family: sans-serif; max-width: 500px; margin: 40px auto; border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+        <h2 style="color: #D4AF37; text-align: center; font-size: 22px; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px;">Datos de Entrega</h2>
+        <p style="color: #888; text-align: center; font-size: 13px; margin-bottom: 25px;">Completa tu información para coordinar el pago y envío</p>
+
+        <form id="form-pedido" onsubmit="enviarPedidoWhatsApp(event)">
+            <div style="margin-bottom: 15px;">
+                <label style="display:block; font-size: 12px; color: #aaa; margin-bottom: 5px; text-transform: uppercase;">Nombre Completo *</label>
+                <input type="text" id="chk-nombre" required style="width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; border-radius: 6px; color: #fff; box-sizing: border-box; outline: none; transition: 0.3s;" onfocus="this.style.borderColor='#D4AF37'">
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label style="display:block; font-size: 12px; color: #aaa; margin-bottom: 5px; text-transform: uppercase;">Teléfono Celular *</label>
+                <input type="tel" id="chk-telefono" required placeholder="Ej. 5512345678" style="width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; border-radius: 6px; color: #fff; box-sizing: border-box; outline: none;" onfocus="this.style.borderColor='#D4AF37'">
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label style="display:block; font-size: 12px; color: #aaa; margin-bottom: 5px; text-transform: uppercase;">Dirección (Calle y Número) *</label>
+                <input type="text" id="chk-direccion" required style="width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; border-radius: 6px; color: #fff; box-sizing: border-box; outline: none;" onfocus="this.style.borderColor='#D4AF37'">
+            </div>
+
+            <div style="grid-template-columns: 1fr 1fr; gap: 10px; display: grid; margin-bottom: 15px;">
+                <div>
+                    <label style="display:block; font-size: 12px; color: #aaa; margin-bottom: 5px; text-transform: uppercase;">Estado *</label>
+                    <input type="text" id="chk-estado" required placeholder="Ej. CDMX, EdoMex" style="width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; border-radius: 6px; color: #fff; box-sizing: border-box; outline: none;" onfocus="this.style.borderColor='#D4AF37'">
+                </div>
+                <div>
+                    <label style="display:block; font-size: 12px; color: #aaa; margin-bottom: 5px; text-transform: uppercase;">Código Postal *</label>
+                    <input type="text" id="chk-cp" required style="width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; border-radius: 6px; color: #fff; box-sizing: border-box; outline: none;" onfocus="this.style.borderColor='#D4AF37'">
+                </div>
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid rgba(212, 175, 55, 0.2); margin: 25px 0;">
+
+            <h3 style="color: #D4AF37; font-size: 16px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.5px;">Método de Pago</h3>
+            
+            <div style="background: #141414; border: 1px solid #222; border-radius: 8px; padding: 5px;">
+                <label style="display: flex; align-items: center; padding: 12px; cursor: pointer; border-bottom: 1px solid #222;">
+                    <input type="radio" name="metodo-pago" value="Transferencia Interbancaria (SPEI)" checked style="margin-right: 12px; accent-color: #D4AF37;">
+                    <div>
+                        <span style="font-size: 14px; font-weight: bold; display: block;">Transferencia SPEI</span>
+                        <span style="font-size: 12px; color: #777;">Banca móvil (Se solicita comprobante)</span>
+                    </div>
+                </label>
+
+                <label style="display: flex; align-items: center; padding: 12px; cursor: pointer; border-bottom: 1px solid #222;">
+                    <input type="radio" name="metodo-pago" value="Depósito OXXO / Ventanilla" style="margin-right: 12px; accent-color: #D4AF37;">
+                    <div>
+                        <span style="font-size: 14px; font-weight: bold; display: block;">Depósito OXXO</span>
+                        <span style="font-size: 12px; color: #777;">Efectivo en tiendas de conveniencia</span>
+                    </div>
+                </label>
+
+                <label style="display: flex; align-items: center; padding: 12px; cursor: pointer;">
+                    <input type="radio" name="metodo-pago" value="Efectivo (Entrega Personal)" style="margin-right: 12px; accent-color: #D4AF37;">
+                    <div>
+                        <span style="font-size: 14px; font-weight: bold; display: block;">Efectivo en Persona</span>
+                        <span style="font-size: 12px; color: #777;">Solo aplica para entregas acordadas</span>
+                    </div>
+                </label>
+            </div>
+
+            <button type="submit" style="width: 100%; background: linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%); color: #000; border: none; padding: 15px; margin-top: 25px; border-radius: 8px; font-size: 15px; font-weight: bold; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.boxShadow='0 0 15px rgba(212, 175, 55, 0.4)'" onmouseout="this.style.boxShadow='none'" onmousedown="this.style.transform='scale(0.98)'" onmouseup="this.style.transform='scale(1)'">
+                Confirmar Pedido por WhatsApp 📱
+            </button>
+        </form>
     </section>
 
     <section id="clientes">
@@ -1136,79 +1206,6 @@
         <span id="toast-mensaje">Producto agregado</span>
     </div>
 
-    <!-- SECCIÓN DE CHECKOUT PREMIUM PREMIUM -->
-<section id="checkout-decant" style="background: #0d0d0d; color: #fff; padding: 40px 20px; font-family: sans-serif; max-width: 500px; margin: 40px auto; border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-    
-    <h2 style="color: #D4AF37; text-align: center; font-size: 22px; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px;">Datos de Entrega</h2>
-    <p style="color: #888; text-align: center; font-size: 13px; margin-bottom: 25px;">Completa tu información para coordinar el pago y envío</p>
-
-    <form id="form-pedido" onsubmit="enviarPedidoWhatsApp(event)">
-        <!-- Datos de Contacto -->
-        <div style="margin-bottom: 15px;">
-            <label style="display:block; font-size: 12px; color: #aaa; margin-bottom: 5px; text-transform: uppercase;">Nombre Completo *</label>
-            <input type="text" id="chk-nombre" required style="width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; border-radius: 6px; color: #fff; box-sizing: border-box; outline: none; transition: 0.3s;" onfocus="this.style.borderColor='#D4AF37'">
-        </div>
-
-        <div style="margin-bottom: 15px;">
-            <label style="display:block; font-size: 12px; color: #aaa; margin-bottom: 5px; text-transform: uppercase;">Teléfono Celular *</label>
-            <input type="tel" id="chk-telefono" required placeholder="Ej. 5512345678" style="width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; border-radius: 6px; color: #fff; box-sizing: border-box; outline: none;" onfocus="this.style.borderColor='#D4AF37'">
-        </div>
-
-        <!-- Dirección de Envío -->
-        <div style="margin-bottom: 15px;">
-            <label style="display:block; font-size: 12px; color: #aaa; margin-bottom: 5px; text-transform: uppercase;">Dirección (Calle y Número) *</label>
-            <input type="text" id="chk-direccion" required style="width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; border-radius: 6px; color: #fff; box-sizing: border-box; outline: none;" onfocus="this.style.borderColor='#D4AF37'">
-        </div>
-
-        <div style="grid-template-columns: 1fr 1fr; gap: 10px; display: grid; margin-bottom: 15px;">
-            <div>
-                <label style="display:block; font-size: 12px; color: #aaa; margin-bottom: 5px; text-transform: uppercase;">Estado *</label>
-                <input type="text" id="chk-estado" required placeholder="Ej. CDMX, EdoMex" style="width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; border-radius: 6px; color: #fff; box-sizing: border-box; outline: none;" onfocus="this.style.borderColor='#D4AF37'">
-            </div>
-            <div>
-                <label style="display:block; font-size: 12px; color: #aaa; margin-bottom: 5px; text-transform: uppercase;">Código Postal *</label>
-                <input type="text" id="chk-cp" required style="width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; border-radius: 6px; color: #fff; box-sizing: border-box; outline: none;" onfocus="this.style.borderColor='#D4AF37'">
-            </div>
-        </div>
-
-        <hr style="border: 0; border-top: 1px solid rgba(212, 175, 55, 0.2); margin: 25px 0;">
-
-        <!-- Métodos de Pago Propios -->
-        <h3 style="color: #D4AF37; font-size: 16px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.5px;">Método de Pago</h3>
-        
-        <div style="background: #141414; border: 1px solid #222; border-radius: 8px; padding: 5px;">
-            <label style="display: flex; align-items: center; padding: 12px; cursor: pointer; border-bottom: 1px solid #222;">
-                <input type="radio" name="metodo-pago" value="Transferencia Interbancaria (SPEI)" checked style="margin-right: 12px; accent-color: #D4AF37;">
-                <div>
-                    <span style="font-size: 14px; font-weight: bold; display: block;">Transferencia SPEI</span>
-                    <span style="font-size: 12px; color: #777;">Banca móvil (Se solicita comprobante)</span>
-                </div>
-            </label>
-
-            <label style="display: flex; align-items: center; padding: 12px; cursor: pointer; border-bottom: 1px solid #222;">
-                <input type="radio" name="metodo-pago" value="Depósito OXXO / Ventanilla" style="margin-right: 12px; accent-color: #D4AF37;">
-                <div>
-                    <span style="font-size: 14px; font-weight: bold; display: block;">Depósito OXXO</span>
-                    <span style="font-size: 12px; color: #777;">Efectivo en tiendas de conveniencia</span>
-                </div>
-            </label>
-
-            <label style="display: flex; align-items: center; padding: 12px; cursor: pointer;">
-                <input type="radio" name="metodo-pago" value="Efectivo (Entrega Personal)" style="margin-right: 12px; accent-color: #D4AF37;">
-                <div>
-                    <span style="font-size: 14px; font-weight: bold; display: block;">Efectivo en Persona</span>
-                    <span style="font-size: 12px; color: #777;">Solo aplica para entregas acordadas</span>
-                </div>
-            </label>
-        </div>
-
-        <!-- Botón de Envío Metálico -->
-        <button type="submit" style="width: 100%; background: linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%); color: #000; border: none; padding: 15px; margin-top: 25px; border-radius: 8px; font-size: 15px; font-weight: bold; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.boxShadow='0 0 15px rgba(212, 175, 55, 0.4)'" onmouseout="this.style.boxShadow='none'" onmousedown="this.style.transform='scale(0.98)'" onmouseup="this.style.transform='scale(1)'">
-            Confirmar Pedido por WhatsApp 📱
-        </button>
-    </form>
-</section>
-
      
     <script>
         let carrito = [];
@@ -1226,7 +1223,7 @@
             // ==========================================
             // FIX: Navegación Forzada para Google Sites
             // ==========================================
-            document.querySelectorAll('nav a, .hero-content .btn').forEach(enlace => {
+            document.querySelectorAll('nav a, .hero-content .btn, #btn-proceder-pago').forEach(enlace => {
                 enlace.addEventListener('click', (e) => {
                     const destinoId = enlace.getAttribute('href');
                     
@@ -1295,10 +1292,8 @@
         // FUNCIONES DEL CARRUSEL DE CLIENTES
         // ==========================================
         function actualizarCarrusel() {
-            // Mueve la tira de diapositivas según la posición actual
             slides.style.transform = `translateX(-${currentSlide * 100}%)`;
             
-            // Actualiza los puntos indicadores (dots)
             dots.forEach((dot, index) => {
                 if (index === currentSlide) {
                     dot.classList.add('active');
@@ -1309,7 +1304,7 @@
         }
 
         function cambiarSlide(direccion) {
-            resetSlideShow(); // Reinicia el temporizador si el usuario interactúa
+            resetSlideShow();
             currentSlide += direccion;
             
             if (currentSlide >= totalSlides) {
@@ -1317,19 +1312,21 @@
             } else if (currentSlide < 0) {
                 currentSlide = totalSlides - 1;
             }
-            actualizarCarrusel();
+            actualrusel = actualizarCarrusel();
         }
 
         function irASlide(index) {
-            resetSlideShow(); // Reinicia el temporizador
+            resetSlideShow();
             currentSlide = index;
             actualizarCarrusel();
         }
 
+        document.getElementById('carousel-slides') && startSlideShow();
+
         function startSlideShow() {
             slideInterval = setInterval(() => {
                 cambiarSlide(1);
-            }, 4000); // Cambia cada 4 segundos
+            }, 4000);
         }
 
         function resetSlideShow() {
@@ -1338,7 +1335,7 @@
         }
 
         // ==========================================
-        // FUNCIONES INTERNAS DEL CARRUSEL
+        // FUNCIONES INTERNAS DEL CARRUSEL / CARRITO
         // ==========================================
         function agregarAlCarrito(nombre, medida, precio) {
             const itemExistente = carrito.find(item => item.nombre === nombre && item.medida === medida);
@@ -1356,17 +1353,24 @@
             actualizarCarritoUI();
         }
 
+        function irAlCheckout() {
+            const seccionCheckout = document.getElementById('checkout-decant');
+            if (seccionCheckout) {
+                seccionCheckout.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
         function actualizarCarritoUI() {
             const contenedor = document.getElementById('elementos-carrito');
             const precioTotalSpan = document.getElementById('precio-total');
             const cartCountSpan = document.getElementById('cart-count');
-            const whatsappLink = document.getElementById('whatsapp-link');
+            const btnProceder = document.getElementById('btn-proceder-pago');
 
             if (carrito.length === 0) {
                 contenedor.innerHTML = '<p style="text-align: center; color: #ccc;">Tu carrito está vacío.</p>';
                 precioTotalSpan.innerText = '0.00';
                 cartCountSpan.innerText = '0';
-                whatsappLink.style.display = 'none';
+                if(btnProceder) btnProceder.style.display = 'none';
                 return;
             }
 
@@ -1393,16 +1397,7 @@
 
             precioTotalSpan.innerText = total.toFixed(2);
             cartCountSpan.innerText = totalCantidad;
-
-            // Enlace de WhatsApp para mandar el pedido
-            let mensaje = `Hola decantAMS, me interesa realizar un pedido de los siguientes artículos:\n\n`;
-            carrito.forEach(item => {
-                mensaje += `- ${item.nombre} (${item.medida}) x${item.cantidad} - $${(item.precio * item.cantidad).toFixed(2)}\n`;
-            });
-            mensaje += `\n*Total a pagar: $${total.toFixed(2)}*`;
-            
-            whatsappLink.href = `https://wa.me/5217226772484?text=${encodeURIComponent(mensaje)}`;
-            whatsappLink.style.display = 'flex';
+            if(btnProceder) btnProceder.style.display = 'block';
         }
 
         function mostrarToast(mensaje) {
@@ -1422,39 +1417,56 @@
             }, 400);
         }
 
-         function enviarPedidoWhatsApp(event) {
-    event.preventDefault(); // Evita que la página se recargue
+        function enviarPedidoWhatsApp(event) {
+            event.preventDefault(); // Evita que la página se recargue
 
-    // Tu número de WhatsApp (Pon el tuyo aquí con código de país, ej: 52 para México + 10 dígitos)
-    const tuTelefonoWhatsApp = "5217226772484"; 
+            const tuTelefonoWhatsApp = "5217226772484"; 
 
-    // Obtener valores de las cajas de texto
-    const nombre = document.getElementById('chk-nombre').value;
-    const telefonoCliente = document.getElementById('chk-telefono').value;
-    const direccion = document.getElementById('chk-direccion').value;
-    const estado = document.getElementById('chk-estado').value;
-    const cp = document.getElementById('chk-cp').value;
-    const metodoPago = document.querySelector('input[name="metodo-pago"]:checked').value;
+            // 1. Obtener valores de los inputs de entrega
+            const nombre = document.getElementById('chk-nombre').value;
+            const telefonoCliente = document.getElementById('chk-telefono').value;
+            const direccion = document.getElementById('chk-direccion').value;
+            const estado = document.getElementById('chk-estado').value;
+            const cp = document.getElementById('chk-cp').value;
+            const metodoPago = document.querySelector('input[name="metodo-pago"]:checked').value;
 
-    // Redactar el mensaje de forma ultra ordenada y limpia
-    const mensaje = encodeURIComponent(
-        `✨ *NUEVO PEDIDO - decantAMS* ✨\n\n` +
-        `👤 *Cliente:* ${nombre}\n` +
-        `📱 *Teléfono:* ${telefonoCliente}\n\n` +
-        `📍 *DATOS DE ENVÍO:*\n` +
-        `• *Dirección:* ${direccion}\n` +
-        `• *Estado:* ${estado}\n` +
-        `• *C.P.:* ${cp}\n\n` +
-        `💳 *MÉTODO DE PAGO:*\n` +
-        `• ${metodoPago}\n\n` +
-        `_Hola, quiero confirmar los detalles de pago y el total de mi fragancia._`
-    );
+            // 2. Extraer los productos actuales del carrito dinámicamente
+            let listaProductos = "";
+            let totalCarrito = 0;
 
-    // Crear la URL de WhatsApp y redirigir
-    const urlWhatsApp = `https://api.whatsapp.com/send?phone=${tuTelefonoWhatsApp}&text=${mensaje}`;
-    window.open(urlWhatsApp, '_blank');
-}
+            if (carrito.length > 0) {
+                carrito.forEach(item => {
+                    const subtotal = item.precio * item.cantidad;
+                    listaProductos += `• ${item.nombre} (${item.medida}) x${item.cantidad} - $${subtotal.toFixed(2)}\n`;
+                    totalCarrito += subtotal;
+                });
+            } else {
+                alert("Tu carrito está vacío. Agrega un producto antes de confirmar.");
+                return;
+            }
 
+            // 3. Armar mensaje Premium unificado
+            const mensaje = encodeURIComponent(
+                `✨ *NUEVO PEDIDO - decantAMS* ✨\n\n` +
+                `👤 *DATOS DEL CLIENTE:*\n` +
+                `• *Nombre:* ${nombre}\n` +
+                `• *Teléfono:* ${telefonoCliente}\n\n` +
+                `📍 *DIRECCIÓN DE ENVÍO:*\n` +
+                `• *Calle y Num:* ${direccion}\n` +
+                `• *Estado:* ${estado}\n` +
+                `• *C.P.:* ${cp}\n\n` +
+                `🛍️ *DETALLE DEL PEDIDO:*\n` +
+                `${listaProductos}\n` +
+                `💰 *TOTAL A PAGAR:* $${totalCarrito.toFixed(2)}\n\n` +
+                `💳 *MÉTODO DE PAGO SELECCIONADO:*\n` +
+                `• ${metodoPago}\n\n` +
+                `_¡Hola! Dejo mis datos listos para que me proporciones la cuenta para el depósito o transferencia._`
+            );
+
+            // 4. Redirigir al cliente a tu chat
+            const urlWhatsApp = `https://api.whatsapp.com/send?phone=${tuTelefonoWhatsApp}&text=${mensaje}`;
+            window.open(urlWhatsApp, '_blank');
+        }
     </script>
 </body>
 </html>
