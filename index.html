@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>decantAMS - Perfumes Exclusivos</title>
-        <style>
+    <style>
         /* Estilos CSS Base con Fondo de Lujo Local Integrado */
         *{margin:0;padding:0;box-sizing:border-box}
 
@@ -15,14 +15,13 @@
         body {
             font-family: 'Montserrat', Arial, sans-serif;
             background-color: #000000;
-            /* Llamamos directamente a la imagen que subiste a tu GitHub */
             background-image: 
                 linear-gradient(rgba(8, 8, 8, 0.82), rgba(8, 8, 8, 0.88)), 
                 url('marmol-oro.jpg'); 
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            background-attachment: fixed; /* Efecto parallax épico en el cel */
+            background-attachment: fixed;
             color: #fff;
             padding-top: 120px;
             overflow-x: hidden;
@@ -34,11 +33,10 @@
         nav a{color:#fff;text-decoration:none;transition: color 0.3s;font-weight: 500;letter-spacing: 1px;}
         nav a:hover{color:#D4AF37}
 
-
         /* 📦 CINTURÓN DE ENVÍOS PREMIUM */
         .shipping-bar {
             position: fixed;
-            top: 65px; /* Justo debajo del menú principal */
+            top: 65px;
             left: 0;
             width: 100%;
             background: linear-gradient(90deg, rgba(212, 175, 55, 0.2) 0%, rgba(8, 8, 8, 0.95) 50%, rgba(212, 175, 55, 0.2) 100%);
@@ -69,7 +67,7 @@
             color: #D4AF37;
         }
         
-        /* Animación para el botón del carrito al agregar un producto */
+        /* Animación para el botón del carrito */
         @keyframes sacudida-dorada {
             0% { transform: scale(1); }
             50% { transform: scale(1.25); color: #D4AF37; text-shadow: 0 0 12px #D4AF37; }
@@ -79,7 +77,7 @@
             animation: sacudida-dorada 0.4s ease-in-out;
         }
         
-        /* Hero Section Premium con Logo de decantAMS */
+        /* Hero Section */
         .hero {
             min-height: 70vh;
             display: flex;
@@ -91,16 +89,15 @@
             overflow: hidden;
         }
 
-        /* Contenedor del Logo de decantAMS - AJUSTADO A 200px */
         .brand-logo-container {
             width: 200px !important;
             height: 200px !important;
             margin: 0 auto 25px auto;
             border-radius: 50%;
-            border: 4px solid #D4AF37 !important; /* Borde dorado más marcado */
+            border: 4px solid #D4AF37 !important;
             padding: 8px;
             background: radial-gradient(circle, rgba(17, 17, 17, 0.9) 60%, rgba(212, 175, 55, 0.2) 100%);
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.5); /* Mayor brillo */
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -155,35 +152,29 @@
             margin-top: 20px;
         }
         
-        /* Tarjetas estilo Glassmorphism de Lujo Mejoradas para el Mármol */
-.card {
-    border: 1px solid rgba(212, 175, 55, 0.25);
-    padding: 25px;
-    border-radius: 20px;
-    /* Subimos la opacidad a 0.85 y el blur a 12px para que el fondo no interfiera con las letras */
-    background: rgba(12, 12, 12, 0.85); 
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
-    position: relative;
-    overflow: hidden;
-}
+        /* Tarjetas estilo Glassmorphism */
+        .card {
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            padding: 25px;
+            border-radius: 20px;
+            background: rgba(12, 12, 12, 0.85); 
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
+            position: relative;
+            overflow: hidden;
+        }
 
-.card:hover {
-    transform: translateY(-10px);
-    border-color: rgba(212, 175, 55, 0.9);
-    background: rgba(18, 18, 18, 0.95);
-    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
-}
-
-
-        .card:hover::before {
-            opacity: 1;
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(212, 175, 55, 0.9);
+            background: rgba(18, 18, 18, 0.95);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
         }
 
         .card img {
@@ -213,7 +204,6 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
-        /* Estilos de los Detalles del Perfume */
         .perfume-detalles {
             margin-bottom: 18px;
             font-size: 0.85rem;
@@ -247,12 +237,11 @@
             font-weight: 500;
         }
         
-        /* Selector tipo Cápsula Premium */
         .medidas-container {
             display: flex;
             justify-content: center;
             gap: 8px;
-            margin-bottom: 18px;
+            margin-bottom: 12px;
             background: rgba(0, 0, 0, 0.5);
             padding: 4px;
             border-radius: 30px;
@@ -282,8 +271,28 @@
             color: #111;
             box-shadow: 0 4px 15px rgba(212,175,55,0.45);
         }
+
+        /* Botón de Ficha Técnica */
+        .btn-ficha-tec {
+            background: transparent;
+            border: 1px solid #D4AF37;
+            color: #D4AF37;
+            padding: 6px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-ficha-tec:hover {
+            background: rgba(212, 175, 55, 0.15);
+            color: #fff;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
         
-        /* Animación del Precio */
         .precio-dinamico {
             font-size: 1.6rem;
             color: #D4AF37;
@@ -359,7 +368,6 @@
             margin: 25px 0;
         }
         
-        /* Botón de WhatsApp Rediseñado en Negro y Dorado */
         .btn-whatsapp {
             display: flex;
             align-items: center;
@@ -386,7 +394,6 @@
             box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
         }
 
-        /* Corrección del SVG de WhatsApp para evitar que se deforme */
         .btn-whatsapp svg {
             flex-shrink: 0;
             width: 22px;
@@ -406,7 +413,7 @@
             transition: all 0.3s;
         }
 
-        /* 📸 NUEVOS ESTILOS: SECCIÓN NUESTROS CLIENTES (CARRUSEL DE LUJO) */
+        /* CARRUSEL DE CLIENTES */
         .clientes-container {
             max-width: 800px;
             margin: 0 auto;
@@ -434,10 +441,9 @@
             justify-content: center;
         }
 
-        /* Contenedor de la foto con proporción estética */
         .slide-img-container {
             width: 100%;
-            height: 480px; /* Tamaño ideal para retratos de clientes/perfumes */
+            height: 480px;
             overflow: hidden;
             display: flex;
             align-items: center;
@@ -448,7 +454,7 @@
         .slide img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Recorta la imagen elegantemente para llenar el espacio */
+            object-fit: cover;
             transition: transform 0.8s ease;
         }
 
@@ -456,7 +462,6 @@
             transform: scale(1.03);
         }
 
-        /* Pie de foto de la opinión del cliente */
         .slide-caption {
             width: 100%;
             padding: 20px 40px;
@@ -484,7 +489,6 @@
             letter-spacing: 1.5px;
         }
 
-        /* Botones del Carrusel (Flechas) */
         .carousel-btn {
             position: absolute;
             top: 50%;
@@ -515,7 +519,6 @@
         .prev-btn { left: 15px; }
         .next-btn { right: 15px; }
 
-        /* Puntos Indicadores (Dots) */
         .carousel-dots {
             display: flex;
             justify-content: center;
@@ -539,17 +542,17 @@
             box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
         }
 
-        /* 🌟 NOTIFICACIÓN FLOTANTE PREMIUM OPTIMIZADA PARA GOOGLE SITES (Top-Center) */
+        /* NOTIFICACIÓN FLOTANTE */
         .toast-notificacion {
             position: fixed;
-            top: 130px; /* Ajustada para no colisionar con el nuevo banner */
+            top: 130px;
             left: 50%;
-            transform: translate(-50%, -150px); /* Escondido arriba */
+            transform: translate(-50%, -150px);
             background: rgba(17, 17, 17, 0.95);
             color: #fff;
             border: 1px solid #D4AF37;
             padding: 12px 25px;
-            border-radius: 30px; /* Estilo píldora elegante */
+            border-radius: 30px;
             box-shadow: 0 10px 25px rgba(212, 175, 55, 0.35);
             z-index: 2000;
             display: flex;
@@ -564,7 +567,7 @@
         }
 
         .toast-notificacion.show {
-            transform: translate(-50%, 0); /* Baja elegantemente */
+            transform: translate(-50%, 0);
             opacity: 1;
         }
 
@@ -573,7 +576,7 @@
             font-size: 1.2rem;
         }
 
-        /* 💎 APARTADO DE PIE DE PÁGINA CON REDES Y ENVÍOS */
+        /* FOOTER */
         .footer-premium {
             background: rgba(8, 8, 8, 0.95);
             border-top: 1px solid rgba(212, 175, 55, 0.25);
@@ -600,7 +603,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* Bloque Informativo de Envíos en Footer */
         .shipping-info-footer {
             max-width: 500px;
             margin: 0 auto 35px auto;
@@ -635,7 +637,6 @@
             margin-bottom: 35px;
         }
 
-        /* Botones de Redes Sociales */
         .social-btn {
             display: flex;
             align-items: center;
@@ -676,9 +677,8 @@
             padding-top: 25px;
         }
 
-        /* 📱 AJUSTES EXCLUSIVOS PARA CELULARES (Único y Corregido) */
+        /* AJUSTES CELULARES */
         @media (max-width: 768px) {
-            /* Hace que el menú de navegación se acomode hacia abajo */
             nav {
                 flex-direction: column;
                 gap: 10px;
@@ -691,37 +691,33 @@
                 gap: 12px;
             }
 
-            /* Ajusta el tamaño del texto principal para que no se desborde */
             h1, .descubre-titulo {
                 font-size: 1.8rem !important;
             }
 
-            /* Baja el espacio para que el menú de arriba no tape el logo */
             body {
                 padding-top: 150px !important;
             }
 
-            /* ⚡ FORZA 2 COLUMNAS EN EL CATÁLOGO EN MÓVILES ⚡ */
             .productos-grid {
                 grid-template-columns: repeat(2, 1fr) !important;
                 gap: 12px !important;
                 padding: 0px 5px !important;
             }
 
-            /* Ajuste de márgenes de las tarjetas para que no se vea apretado */
             .card {
                 padding: 12px !important;
                 border-radius: 12px !important;
             }
 
             .card img {
-                max-height: 110px !important; /* Achica un poco la imagen para dejar espacio al texto */
+                max-height: 110px !important;
                 margin-bottom: 10px !important;
                 padding: 5px !important;
             }
 
             .card h3 {
-                font-size: 0.95rem !important; /* Ajusta el nombre del perfume */
+                font-size: 0.95rem !important;
                 min-height: auto !important;
                 margin-bottom: 8px !important;
             }
@@ -739,18 +735,24 @@
 
             .perfume-detalles .notes, 
             .perfume-detalles .etiqueta-uso {
-                display: none !important; /* Esconde las notas largas en celular para mantenerlo estético y limpio */
+                display: none !important;
             }
 
             .medidas-container {
                 padding: 2px !important;
-                margin-bottom: 10px !important;
+                margin-bottom: 8px !important;
                 gap: 4px !important;
             }
 
             .medida-btn {
                 padding: 6px 4px !important;
                 font-size: 0.75rem !important;
+            }
+
+            .btn-ficha-tec {
+                padding: 4px 8px !important;
+                font-size: 0.68rem !important;
+                margin-bottom: 8px !important;
             }
 
             .precio-dinamico {
@@ -802,194 +804,218 @@
         <h2>Nuestros Decants</h2>
         <div class="productos-grid">
             
-            <div class="card" data-tipo="perfume" data-nombre="Mandarin sky">
+            <!-- 1. Mandarin Sky -->
+            <div class="card" data-tipo="perfume" data-id="mandarin-sky" data-nombre="Mandarin sky">
                 <img src="https://i.postimg.cc/Y2gc74ZH/Mandsrin-sky.png" alt="Mandarin sky">
                 <h3>Mandarin sky</h3>
                 <div class="perfume-detalles">
-                    <span class="familia">Cítrica Especiada</span>
+                    <span class="familia">FRAGANCIA FRESCA Y VIBRANTE</span>
                     <p class="notes">🍊 Mandarina, Azafrán, Caramelo</p>
-                    <span class="etiqueta-uso">✨ Uso: Noche / Eventos Especiales</span>
+                    <span class="etiqueta-uso">✨ Uso: Noche / Climas Frescos</span>
                 </div>
                 <div class="medidas-container">
                     <button class="medida-btn active" data-size="5ml" data-price="85">5ml</button>
                     <button class="medida-btn" data-size="10ml" data-price="150">10ml</button>
                 </div>
+                <button class="btn-ficha-tec" onclick="abrirFichaTecnica('mandarin-sky')">🔍 Ficha Técnica</button>
                 <div class="precio-dinamico">$85.00</div>
                 <button class="btn-agregar">Agregar al Carrito</button>
             </div>
 
-            <div class="card" data-tipo="perfume" data-nombre="Bharara king soleil">
+            <!-- 2. Bharara King Soleil -->
+            <div class="card" data-tipo="perfume" data-id="bharara-king-soleil" data-nombre="Bharara king soleil">
                 <img src="https://i.postimg.cc/5NR8m09v/Bharara.png" alt="Bharara king soleil">
                 <h3>Bharara king soleil</h3>
                 <div class="perfume-detalles">
-                    <span class="familia">Cítrica Ámbar</span>
+                    <span class="familia">FRAGANCIA FRESCA Y VIBRANTE</span>
                     <p class="notes">🍋 Limón, Bergamota, Ámbar Cálido</p>
-                    <span class="etiqueta-uso">☀️ Uso: Diario / Clima Cálido</span>
+                    <span class="etiqueta-uso">☀️ Uso: Diario / Formal e Informal</span>
                 </div>
                 <div class="medidas-container">
                     <button class="medida-btn active" data-size="5ml" data-price="85">5ml</button>
                     <button class="medida-btn" data-size="10ml" data-price="150">10ml</button>
                 </div>
+                <button class="btn-ficha-tec" onclick="abrirFichaTecnica('bharara-king-soleil')">🔍 Ficha Técnica</button>
                 <div class="precio-dinamico">$85.00</div>
                 <button class="btn-agregar">Agregar al Carrito</button>
             </div>
 
-            <div class="card" data-tipo="perfume" data-nombre="Ramz gold">
+            <!-- 3. Ramz Lattafa Gold -->
+            <div class="card" data-tipo="perfume" data-id="ramz-lattafa-gold" data-nombre="Ramz gold">
                 <img src="https://i.postimg.cc/DzdWRyhL/Ramz_gold.png" alt="Ramz gold">
                 <h3>Ramz gold</h3>
                 <div class="perfume-detalles">
-                    <span class="familia">Ámbar Floral</span>
-                    <p class="notes">🪵 Notas Dulces, Sándalo, Madera</p>
-                    <span class="etiqueta-uso">🍂 Uso: Otoño / Clima Templado</span>
+                    <span class="familia">FRAGANCIA FLORAL Y DULCE</span>
+                    <p class="notes">🪵 Manzana, Jazmín, Vainilla</p>
+                    <span class="etiqueta-uso">🍂 Uso: Noche y Día / Eventos</span>
                 </div>
                 <div class="medidas-container">
                     <button class="medida-btn active" data-size="5ml" data-price="65">5ml</button>
                     <button class="medida-btn" data-size="10ml" data-price="100">10ml</button>
                 </div>
+                <button class="btn-ficha-tec" onclick="abrirFichaTecnica('ramz-lattafa-gold')">🔍 Ficha Técnica</button>
                 <div class="precio-dinamico">$65.00</div>
                 <button class="btn-agregar">Agregar al Carrito</button>
             </div>
 
-            <div class="card" data-tipo="perfume" data-nombre="Ramz silver">
+            <!-- 4. Ramz Lattafa Silver -->
+            <div class="card" data-tipo="perfume" data-id="ramz-lattafa-silver" data-nombre="Ramz silver">
                 <img src="https://i.postimg.cc/3wH4L0sX/Ramz_silver.png" alt="Ramz silver">
                 <h3>Ramz silver</h3>
                 <div class="perfume-detalles">
-                    <span class="familia">Ámbar Vainilla</span>
-                    <p class="notes">🍦 Vainilla Dulce, Lavanda, Menta</p>
-                    <span class="etiqueta-uso">❄️ Uso: Noche / Citas / Invierno</span>
+                    <span class="familia">FRAGANCIA DULCE Y AFRUTADA</span>
+                    <p class="notes">🍦 Pera, Lavanda, Vainilla</p>
+                    <span class="etiqueta-uso">❄️ Uso: Lugares Abiertos y Frescos</span>
                 </div>
                 <div class="medidas-container">
                     <button class="medida-btn active" data-size="5ml" data-price="65">5ml</button>
                     <button class="medida-btn" data-size="10ml" data-price="100">10ml</button>
                 </div>
+                <button class="btn-ficha-tec" onclick="abrirFichaTecnica('ramz-lattafa-silver')">🔍 Ficha Técnica</button>
                 <div class="precio-dinamico">$65.00</div>
                 <button class="btn-agregar">Agregar al Carrito</button>
             </div>
 
-            <div class="card" data-tipo="perfume" data-nombre="Odyssey aoud">
+            <!-- 5. Odyssey Aoud -->
+            <div class="card" data-tipo="perfume" data-id="odyssey-aoud" data-nombre="Odyssey aoud">
                 <img src="https://i.postimg.cc/DzdWRyhP/Oddysey_aoud.png" alt="Odyssey aoud">
                 <h3>Odyssey aoud</h3>
                 <div class="perfume-detalles">
-                    <span class="familia">Amaderada Oud</span>
-                    <p class="notes">🪵 Oud Misterioso, Azafrán, Pachulí</p>
-                    <span class="etiqueta-uso">🎩 Uso: Formal / Noche de Gala</span>
+                    <span class="familia">FRAGANCIA AMADERADA Y ESPECIADA</span>
+                    <p class="notes">🪵 Oud, Lavanda, Pachulí</p>
+                    <span class="etiqueta-uso">🎩 Uso: Noche / Eventos Especiales</span>
                 </div>
                 <div class="medidas-container">
                     <button class="medida-btn active" data-size="5ml" data-price="80">5ml</button>
                     <button class="medida-btn" data-size="10ml" data-price="140">10ml</button>
                 </div>
+                <button class="btn-ficha-tec" onclick="abrirFichaTecnica('odyssey-aoud')">🔍 Ficha Técnica</button>
                 <div class="precio-dinamico">$80.00</div>
                 <button class="btn-agregar">Agregar al Carrito</button>
             </div>
 
-            <div class="card" data-tipo="perfume" data-nombre="Odyssey wild one gold">
+            <!-- 6. Odyssey Wild One Gold -->
+            <div class="card" data-tipo="perfume" data-id="odyssey-wild-one-gold" data-nombre="Odyssey wild one gold">
                 <img src="https://i.postimg.cc/jjQWBdTc/Oddysey_wild.png" alt="Odyssey wild one gold">
                 <h3>Odyssey wild one gold</h3>
                 <div class="perfume-detalles">
-                    <span class="familia">Amaderada Especiado</span>
-                    <p class="notes">🌶️ Pimienta, Lavanda, Vetiver Terroso</p>
-                    <span class="etiqueta-uso">⚡ Uso: Firma / Carácter Fuerte</span>
+                    <span class="familia">FRAGANCIA AMADERADA Y ESPECIADA</span>
+                    <p class="notes">🌶️ Lima, Menta, Vetiver</p>
+                    <span class="etiqueta-uso">⚡ Uso: Diario / Noche y Día</span>
                 </div>
                 <div class="medidas-container">
                     <button class="medida-btn active" data-size="5ml" data-price="80">5ml</button>
                     <button class="medida-btn" data-size="10ml" data-price="140">10ml</button>
                 </div>
+                <button class="btn-ficha-tec" onclick="abrirFichaTecnica('odyssey-wild-one-gold')">🔍 Ficha Técnica</button>
                 <div class="precio-dinamico">$80.00</div>
                 <button class="btn-agregar">Agregar al Carrito</button>
             </div>
 
-            <div class="card" data-tipo="perfume" data-nombre="Club de nuit intense">
+            <!-- 7. Club de Nuit Intense Man -->
+            <div class="card" data-tipo="perfume" data-id="club-de-nuit-intense-man" data-nombre="Club de nuit intense">
                 <img src="https://i.postimg.cc/9ft4sF2y/Cdn_intense.png" alt="Club de nuit intense">
                 <h3>Club de nuit intense</h3>
                 <div class="perfume-detalles">
-                    <span class="familia">Amaderada Cítrica</span>
-                    <p class="notes">🍍 Piña Ahumada, Limón, Abedul</p>
-                    <span class="etiqueta-uso">🔥 Uso: Conquista / Extremadamente Halagado</span>
+                    <span class="familia">FRAGANCIA AMADERADA Y ESPECIADA</span>
+                    <p class="notes">🍍 Piña, Lima, Abedul, Vainilla</p>
+                    <span class="etiqueta-uso">🔥 Uso: Eventos Especiales / Noche y Día</span>
                 </div>
                 <div class="medidas-container">
                     <button class="medida-btn active" data-size="5ml" data-price="85">5ml</button>
                     <button class="medida-btn" data-size="10ml" data-price="150">10ml</button>
                 </div>
+                <button class="btn-ficha-tec" onclick="abrirFichaTecnica('club-de-nuit-intense-man')">🔍 Ficha Técnica</button>
                 <div class="precio-dinamico">$85.00</div>
                 <button class="btn-agregar">Agregar al Carrito</button>
             </div>
 
-            <div class="card" data-tipo="perfume" data-nombre="Club de nuit sillage">
+            <!-- 8. Club de Nuit Sillage -->
+            <div class="card" data-tipo="perfume" data-id="club-de-nuit-sillage" data-nombre="Club de nuit sillage">
                 <img src="https://i.postimg.cc/1zcgb5Sc/CDN_SILLAGE.png" alt="Club de nuit sillage">
                 <h3>Club de nuit sillage</h3>
                 <div class="perfume-detalles">
-                    <span class="familia">Almizcle Floral</span>
-                    <p class="notes">❄️ Grosellas Negras, Bergamota, Sándalo</p>
-                    <span class="etiqueta-uso">👔 Uso: Oficina / Elegancia Limpia</span>
+                    <span class="familia">FRAGANCIA AMADERADA Y ESPECIADA</span>
+                    <p class="notes">❄️ Limón, Bergamota, Sándalo</p>
+                    <span class="etiqueta-uso">👔 Uso: Diario / Día</span>
                 </div>
                 <div class="medidas-container">
                     <button class="medida-btn active" data-size="5ml" data-price="85">5ml</button>
                     <button class="medida-btn" data-size="10ml" data-price="150">10ml</button>
                 </div>
+                <button class="btn-ficha-tec" onclick="abrirFichaTecnica('club-de-nuit-sillage')">🔍 Ficha Técnica</button>
                 <div class="precio-dinamico">$85.00</div>
                 <button class="btn-agregar">Agregar al Carrito</button>
             </div>
 
-            <div class="card" data-tipo="perfume" data-nombre="Tubbees strawberry">
+            <!-- 9. Tubbees Strawberry Cheesecake -->
+            <div class="card" data-tipo="perfume" data-id="tubbees-strawberry" data-nombre="Tubbees strawberry">
                 <img src="https://i.postimg.cc/TPXLk5zD/Strowberry.png" alt="Tubbees strawberry">
                 <h3>Tubbees strawberry</h3>
                 <div class="perfume-detalles">
-                    <span class="familia">Gourmand Dulce</span>
-                    <p class="notes">🍓 Fresa Cremosa, Crema Batida, Vainilla</p>
-                    <span class="etiqueta-uso">🍭 Uso: Casual / Salidas Divertidas</span>
+                    <span class="familia">FRAGANCIA DULCE Y GOURMAND</span>
+                    <p class="notes">🍓 Fresa, Tarta de queso, Vainilla</p>
+                    <span class="etiqueta-uso">🍭 Uso: Salidas Nocturnas / Climas Frescos</span>
                 </div>
                 <div class="medidas-container">
                     <button class="medida-btn active" data-size="5ml" data-price="60">5ml</button>
                     <button class="medida-btn" data-size="10ml" data-price="100">10ml</button>
                 </div>
+                <button class="btn-ficha-tec" onclick="abrirFichaTecnica('tubbees-strawberry')">🔍 Ficha Técnica</button>
                 <div class="precio-dinamico">$60.00</div>
                 <button class="btn-agregar">Agregar al Carrito</button>
             </div>
 
-            <div class="card" data-tipo="perfume" data-nombre="Tubbees cookies & cream">
+            <!-- 10. Tubbees Cookies & Cream -->
+            <div class="card" data-tipo="perfume" data-id="tubbees-cookies-cream" data-nombre="Tubbees cookies & cream">
                 <img src="https://i.postimg.cc/bvjD6S79/Cookies.png" alt="Tubbees cookies&cream">
                 <h3>Tubbees cookies & cream</h3>
                 <div class="perfume-detalles">
-                    <span class="familia">Gourmand Extremo</span>
-                    <p class="notes">🍪 Galleta de Chocolate, Crema Dulce</p>
-                    <span class="etiqueta-uso">🍫 Uso: Informal / Amantes de lo Dulce</span>
+                    <span class="familia">FRAGANCIA DULCE Y GOURMAND</span>
+                    <p class="notes">🍪 Mantequilla, Chocolate, Leche</p>
+                    <span class="etiqueta-uso">🍫 Uso: Salidas Nocturnas / Climas Frescos</span>
                 </div>
                 <div class="medidas-container">
                     <button class="medida-btn active" data-size="5ml" data-price="60">5ml</button>
                     <button class="medida-btn" data-size="10ml" data-price="100">10ml</button>
                 </div>
+                <button class="btn-ficha-tec" onclick="abrirFichaTecnica('tubbees-cookies-cream')">🔍 Ficha Técnica</button>
                 <div class="precio-dinamico">$60.00</div>
                 <button class="btn-agregar">Agregar al Carrito</button>
             </div>
 
-            <div class="card" data-tipo="perfume" data-nombre="Rave now woman">
+            <!-- 11. Rave Now Woman -->
+            <div class="card" data-tipo="perfume" data-id="rave-now-woman" data-nombre="Rave now woman">
                 <img src="https://i.postimg.cc/R0z6PJk1/Rave_now.png" alt="Rave now woman">
                 <h3>Rave now woman</h3>
                 <div class="perfume-detalles">
-                    <span class="familia">Floral Frutal</span>
-                    <p class="notes">🍓 Frutos Rojos, Malvavisco, Almizcle</p>
-                    <span class="etiqueta-uso">👗 Uso: Diario / Coqueto y Femenino</span>
+                    <span class="familia">FRAGANCIA DULCE Y AFRUTADA</span>
+                    <p class="notes">🍓 Frutos rojos, Naranja, Malvavisco</p>
+                    <span class="etiqueta-uso">👗 Uso: Recomendado para Día</span>
                 </div>
                 <div class="medidas-container">
                     <button class="medida-btn active" data-size="5ml" data-price="80">5ml</button>
                     <button class="medida-btn" data-size="10ml" data-price="140">10ml</button>
                 </div>
+                <button class="btn-ficha-tec" onclick="abrirFichaTecnica('rave-now-woman')">🔍 Ficha Técnica</button>
                 <div class="precio-dinamico">$80.00</div>
                 <button class="btn-agregar">Agregar al Carrito</button>
             </div>
 
-            <div class="card" data-tipo="perfume" data-nombre="Fakhar rose">
+            <!-- 12. Fakhar Rose Lattafa -->
+            <div class="card" data-tipo="perfume" data-id="fakhar-rose-lattafa" data-nombre="Fakhar rose">
                 <img src="https://i.postimg.cc/jjrw8npQ/Fakhar_rose.png" alt="Fakhar rose">
                 <h3>Fakhar rose</h3>
                 <div class="perfume-detalles">
-                    <span class="familia">Floral Dulce</span>
-                    <p class="notes">🌹 Rosa, Jazmín, Gardenia, Vainilla</p>
-                    <span class="etiqueta-uso">💍 Uso: Elegante / Eventos de Día</span>
+                    <span class="familia">FRAGANCIA DULCE Y AFRUTADA</span>
+                    <p class="notes">🌹 Frutas, Jazmín, Vainilla</p>
+                    <span class="etiqueta-uso">💍 Uso: Salidas Nocturnas / Fiestas</span>
                 </div>
                 <div class="medidas-container">
                     <button class="medida-btn active" data-size="5ml" data-price="80">5ml</button>
                     <button class="medida-btn" data-size="10ml" data-price="140">10ml</button>
                 </div>
+                <button class="btn-ficha-tec" onclick="abrirFichaTecnica('fakhar-rose-lattafa')">🔍 Ficha Técnica</button>
                 <div class="precio-dinamico">$80.00</div>
                 <button class="btn-agregar">Agregar al Carrito</button>
             </div>
@@ -1042,12 +1068,10 @@
             </div>
             <div class="total-carrito">Total: $<span id="precio-total">0.00</span></div>
             
-            <!-- Botón de Redirección Interna Premium -->
             <button id="btn-proceder-pago" onclick="irAlCheckout()" style="display: none; width: 100%; padding: 15px; background: linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%); color: #000; font-weight: bold; border: none; border-radius: 30px; cursor: pointer; text-transform: uppercase; letter-spacing: 1.5px; font-size: 1rem; transition: all 0.3s ease;">
                 Proceder al Pago / Datos de Envío 📦
             </button>
 
-            <!-- Enlace viejo oculto para no alterar funciones previas -->
             <a href="#" id="whatsapp-link" class="btn-whatsapp" target="_blank" style="display: none !important;">
                 Finalizar Pedido
             </a>
@@ -1201,28 +1225,192 @@
         </div>
     </footer>
 
+    <!-- MODAL DE FICHA TÉCNICA OLFATIVA -->
+    <div id="modalFichaTecnica" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 9999; justify-content: center; align-items: center; padding: 15px; backdrop-filter: blur(5px);">
+      <div style="background: #121212; border: 1px solid #D4AF37; border-radius: 16px; width: 100%; max-width: 480px; padding: 25px; position: relative; box-shadow: 0 10px 30px rgba(212,175,55,0.3);">
+        <button onclick="cerrarFichaTecnica()" style="position: absolute; top: 12px; right: 15px; background: transparent; border: none; color: #D4AF37; font-size: 1.8rem; cursor: pointer; font-weight: bold;">&times;</button>
+        <div id="contenidoModalFicha"></div>
+      </div>
+    </div>
+
     <div id="toast" class="toast-notificacion">
         <span class="toast-icon">✨</span>
         <span id="toast-mensaje">Producto agregado</span>
     </div>
 
-     
     <script>
+        // Array de datos completo de los 12 perfumes
+        const productosPerfumes = [
+          {
+            id: 'rave-now-woman',
+            nombre: 'Rave Now Woman',
+            tipo: '🇦🇪 Árabe | 👩 Mujer | 💎 Eau de Parfum',
+            familia: 'FRAGANCIA DULCE Y AFRUTADA',
+            salida: 'Frutos rojos y Naranja',
+            corazon: 'Malvavisco, Jazmín y Lirio de los valles',
+            base: 'Vainilla, Almizcle y Musgo',
+            duracion: '7+ Horas',
+            proyeccion: 'Media - Alta',
+            ideal: 'Se recomienda más para día',
+            ocasion: 'Es dulce pero puede llevarse a todos lados'
+          },
+          {
+            id: 'club-de-nuit-sillage',
+            nombre: 'Club de Nuit Sillage',
+            tipo: '🇦🇪 Árabe | 👨 Hombre | 💎 Eau de Parfum',
+            familia: 'FRAGANCIA AMADERADA Y ESPECIADA',
+            salida: 'Lima, Limón, Bergamota, Jengibre',
+            corazon: 'Rosas, Jazmín e Iris',
+            base: 'Cedro, Sándalo, Almizcle y Ambroxan',
+            duracion: '6+ Horas',
+            proyeccion: 'Alta',
+            ideal: 'Día',
+            ocasion: 'Cualquier tipo de uso diario'
+          },
+          {
+            id: 'odyssey-aoud',
+            nombre: 'Odyssey Aoud',
+            tipo: '🇦🇪 Árabe | 👨 Hombre | 💎 Eau de Parfum',
+            familia: 'FRAGANCIA AMADERADA Y ESPECIADA',
+            salida: 'Lavanda, Azafrán y Nuez moscada',
+            corazon: 'Madera de Oud y Notas amaderadas',
+            base: 'Pachulí, Almizcle y Ambroxan',
+            duracion: '8+ Horas',
+            proyeccion: 'Alta',
+            ideal: 'Noche',
+            ocasion: 'Salidas nocturnas y eventos para destacar'
+          },
+          {
+            id: 'odyssey-wild-one-gold',
+            nombre: 'Odyssey Wild One Gold',
+            tipo: '🇦🇪 Árabe | 👨 Hombre | 💎 Eau de Parfum',
+            familia: 'FRAGANCIA AMADERADA Y ESPECIADA',
+            salida: 'Lima, Menta, Pimienta y Bergamota',
+            corazon: 'Vetiver, Jengibre, Lavanda y Pimienta rosa',
+            base: 'Cedro, Pachulí, Sándalo, Almizcle y Vetiver',
+            duracion: '7+ Horas',
+            proyeccion: 'Alta',
+            ideal: 'Noche y Día',
+            ocasion: 'Para diario y cualquier actividad habitual'
+          },
+          {
+            id: 'mandarin-sky',
+            nombre: 'Mandarin Sky',
+            tipo: '🇦🇪 Árabe | 👨 Hombre | 💎 Eau de Parfum',
+            familia: 'FRAGANCIA FRESCA Y VIBRANTE',
+            salida: 'Mandarina, Naranja, Azafrán y Salvia',
+            corazon: 'Caramelo, Haba Tonka y Cempasúchil',
+            base: 'Ambroxan, Cedro y Vetiver',
+            duracion: '8+ Horas',
+            proyeccion: 'Media - Alta',
+            ideal: 'Salidas nocturnas y climas frescos',
+            ocasion: 'Salidas con amigos, algo al aire libre'
+          },
+          {
+            id: 'tubbees-strawberry',
+            nombre: 'Tubbees Strawberry Cheesecake',
+            tipo: '🇦🇪 Árabe | 👩 Mujer | 💎 Eau de Parfum',
+            familia: 'FRAGANCIA DULCE Y GOURMAND',
+            salida: 'Tarta de queso, Fresa y Vainilla',
+            corazon: 'Crema batida, Vainilla y Sándalo',
+            base: 'Vainilla y Styrax',
+            duracion: '6 Horas aprox',
+            proyeccion: 'Media',
+            ideal: 'Salidas nocturnas y climas frescos',
+            ocasion: 'Salidas con amigos, algo al aire libre'
+          },
+          {
+            id: 'tubbees-cookies-cream',
+            nombre: 'Tubbees Cookies & Cream',
+            tipo: '🇦🇪 Árabe | 👩 Mujer | 💎 Eau de Parfum',
+            familia: 'FRAGANCIA DULCE Y GOURMAND',
+            salida: 'Mantequilla y Azúcar',
+            corazon: 'Leche y Chocolate',
+            base: 'Vainilla y Almizcle blanco',
+            duracion: '6 Horas aprox',
+            proyeccion: 'Media - Alta',
+            ideal: 'Salidas nocturnas y climas frescos',
+            ocasion: 'Salidas con amigos, algo al aire libre'
+          },
+          {
+            id: 'club-de-nuit-intense-man',
+            nombre: 'Club de Nuit Intense Man',
+            tipo: '🇦🇪 Árabe | 👨 Hombre | 💎 Eau de Parfum',
+            familia: 'FRAGANCIA AMADERADA Y ESPECIADA',
+            salida: 'Lima, Piña, Bergamota, Grosella y Manzana',
+            corazon: 'Rosas, Jazmín y Abedul',
+            base: 'Vainilla, Pachulí, Ámbar gris y Almizcle',
+            duracion: '10+ Horas',
+            proyeccion: 'Alta',
+            ideal: 'Noche y Día',
+            ocasion: 'Eventos especiales (atomizar con antelación)'
+          },
+          {
+            id: 'fakhar-rose-lattafa',
+            nombre: 'Fakhar Rose Lattafa',
+            tipo: '🇦🇪 Árabe | 👩 Mujer | 💎 Eau de Parfum',
+            familia: 'FRAGANCIA DULCE Y AFRUTADA',
+            salida: 'Frutas, Azucena, Granada y Aldehídos',
+            corazon: 'Nardos, Jazmín, Gardenia y Rosa',
+            base: 'Vainilla, Almizcle blanco, Sándalo y Ambroxan',
+            duracion: '7+ Horas',
+            proyeccion: 'Alta',
+            ideal: 'Por lo dulce es mejor de noche',
+            ocasion: 'Salidas nocturnas, fiestas, lugares abiertos'
+          },
+          {
+            id: 'ramz-lattafa-gold',
+            nombre: 'Ramz Lattafa Gold',
+            tipo: '🇦🇪 Árabe | 👩 Mujer | 💎 Eau de Parfum',
+            familia: 'FRAGANCIA FLORAL Y DULCE',
+            salida: 'Manzana, Durazno, Pera, Grosellas y Naranja',
+            corazon: 'Rosa, Jazmín y Flor de azahar de naranjo',
+            base: 'Sándalo, Almizcle blanco, Vainilla y Pachulí',
+            duracion: '7+ Horas',
+            proyeccion: 'Alta',
+            ideal: 'Noche y Día',
+            ocasion: 'Eventos especiales, lugares abiertos'
+          },
+          {
+            id: 'ramz-lattafa-silver',
+            nombre: 'Ramz Lattafa Silver',
+            tipo: '🇦🇪 Árabe | 👨 Hombre | 💎 Eau de Parfum',
+            familia: 'FRAGANCIA DULCE Y AFRUTADA',
+            salida: 'Pera, Lavanda, Menta y Bergamota',
+            corazon: 'Cardamomo y Salvia',
+            base: 'Vainilla, Ámbar, Almizcle y Pachulí',
+            duracion: '9+ Horas',
+            proyeccion: 'Alta',
+            ideal: 'Lugares abiertos y frescos',
+            ocasion: 'Salidas a lugares abiertos y frescos'
+          },
+          {
+            id: 'bharara-king-soleil',
+            nombre: 'Bharara King Soleil',
+            tipo: '🇦🇪 Árabe | 👨 Hombre | 💎 Eau de Parfum',
+            familia: 'FRAGANCIA FRESCA Y VIBRANTE',
+            salida: 'Vainilla, Avellana',
+            corazon: 'Limón, Bergamota',
+            base: 'Sándalo y Naranja',
+            duracion: '9+ Horas',
+            proyeccion: 'Alta',
+            ideal: 'Es diurno, funciona de día y de noche',
+            ocasion: 'Para todo tipo de salida formal o informal'
+          }
+        ];
+
         let carrito = [];
 
-        // Variables globales para el carrusel de clientes
+        // Variables carrusel
         let currentSlide = 0;
         let slideInterval;
         const slides = document.getElementById('carousel-slides');
         const dots = document.querySelectorAll('.dot');
         const totalSlides = document.querySelectorAll('.slide').length;
 
-        // Aseguramos que el DOM esté completamente cargado para inicializar las acciones
         document.addEventListener('DOMContentLoaded', () => {
             
-            // ==========================================
-            // FIX: Navegación Forzada para Google Sites
-            // ==========================================
+            // Navegación fluida
             document.querySelectorAll('nav a, .hero-content .btn, #btn-proceder-pago').forEach(enlace => {
                 enlace.addEventListener('click', (e) => {
                     const destinoId = enlace.getAttribute('href');
@@ -1241,7 +1429,7 @@
                 });
             });
 
-            // 1. Manejo de botones de tamaño (5ml / 10ml) en perfumes
+            // Selector de medidas (5ml / 10ml)
             document.querySelectorAll('.medidas-container').forEach(container => {
                 container.addEventListener('click', (e) => {
                     const btn = e.target.closest('.medida-btn');
@@ -1265,7 +1453,7 @@
                 });
             });
 
-            // 2. Manejo unificado de clics en el botón de "Agregar al Carrito"
+            // Botón Agregar al Carrito
             document.querySelectorAll('.btn-agregar').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     const card = e.target.closest('.card');
@@ -1284,14 +1472,52 @@
                 });
             });
 
-            // 3. Inicializar auto-reproducción del carrusel de clientes
             startSlideShow();
         });
 
-        // ==========================================
-        // FUNCIONES DEL CARRUSEL DE CLIENTES
-        // ==========================================
+        // FUNCIONES MODAL FICHA TÉCNICA
+        function abrirFichaTecnica(idProducto) {
+          const p = productosPerfumes.find(prod => prod.id === idProducto);
+          if (!p) return;
+
+          const modalBody = document.getElementById('contenidoModalFicha');
+          modalBody.innerHTML = `
+            <div style="color: #e0e0e0; font-family: system-ui, sans-serif; text-align: left;">
+              <h2 style="color: #D4AF37; font-size: 1.25rem; margin-bottom: 4px; border-bottom: 1px solid rgba(212,175,55,0.3); padding-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">
+                ${p.nombre}
+              </h2>
+              <p style="font-size: 0.8rem; color: #aaa; margin: 6px 0 2px 0;">${p.tipo}</p>
+              <p style="font-size: 0.82rem; font-weight: bold; color: #D4AF37; margin-bottom: 15px;">
+                ${p.familia}
+              </p>
+
+              <h3 style="color: #D4AF37; font-size: 0.9rem; margin-top: 12px; margin-bottom: 6px; border-left: 2px solid #D4AF37; padding-left: 8px; text-transform: uppercase;">Notas Olfativas</h3>
+              <ul style="list-style: none; padding-left: 0; font-size: 0.85rem; line-height: 1.6; margin: 0; color: #ddd;">
+                <li><strong>🍓 Salida:</strong> ${p.salida}</li>
+                <li><strong>💐 Corazón:</strong> ${p.corazon}</li>
+                <li><strong>🪵 Base:</strong> ${p.base}</li>
+              </ul>
+
+              <h3 style="color: #D4AF37; font-size: 0.9rem; margin-top: 14px; margin-bottom: 6px; border-left: 2px solid #D4AF37; padding-left: 8px; text-transform: uppercase;">Performance y Uso</h3>
+              <ul style="list-style: none; padding-left: 0; font-size: 0.85rem; line-height: 1.6; margin: 0; color: #ddd;">
+                <li><strong>⏳ Duración:</strong> ${p.duracion}</li>
+                <li><strong>📢 Proyección:</strong> ${p.proyeccion}</li>
+                <li><strong>☀️ Ideal para:</strong> ${p.ideal}</li>
+                <li><strong>👔 Ocasión:</strong> ${p.ocasion}</li>
+              </ul>
+            </div>
+          `;
+
+          document.getElementById('modalFichaTecnica').style.display = 'flex';
+        }
+
+        function cerrarFichaTecnica() {
+          document.getElementById('modalFichaTecnica').style.display = 'none';
+        }
+
+        // FUNCIONES CARRUSEL
         function actualizarCarrusel() {
+            if (!slides) return;
             slides.style.transform = `translateX(-${currentSlide * 100}%)`;
             
             dots.forEach((dot, index) => {
@@ -1312,7 +1538,7 @@
             } else if (currentSlide < 0) {
                 currentSlide = totalSlides - 1;
             }
-            actualrusel = actualizarCarrusel();
+            actualizarCarrusel();
         }
 
         function irASlide(index) {
@@ -1320,8 +1546,6 @@
             currentSlide = index;
             actualizarCarrusel();
         }
-
-        document.getElementById('carousel-slides') && startSlideShow();
 
         function startSlideShow() {
             slideInterval = setInterval(() => {
@@ -1334,9 +1558,7 @@
             startSlideShow();
         }
 
-        // ==========================================
-        // FUNCIONES INTERNAS DEL CARRUSEL / CARRITO
-        // ==========================================
+        // FUNCIONES CARRITO
         function agregarAlCarrito(nombre, medida, precio) {
             const itemExistente = carrito.find(item => item.nombre === nombre && item.medida === medida);
             
@@ -1418,11 +1640,10 @@
         }
 
         function enviarPedidoWhatsApp(event) {
-            event.preventDefault(); // Evita que la página se recargue
+            event.preventDefault();
 
             const tuTelefonoWhatsApp = "5217226772484"; 
 
-            // 1. Obtener valores de los inputs de entrega
             const nombre = document.getElementById('chk-nombre').value;
             const telefonoCliente = document.getElementById('chk-telefono').value;
             const direccion = document.getElementById('chk-direccion').value;
@@ -1430,7 +1651,6 @@
             const cp = document.getElementById('chk-cp').value;
             const metodoPago = document.querySelector('input[name="metodo-pago"]:checked').value;
 
-            // 2. Extraer los productos actuales del carrito dinámicamente
             let listaProductos = "";
             let totalCarrito = 0;
 
@@ -1445,7 +1665,6 @@
                 return;
             }
 
-            // 3. Armar mensaje Premium unificado
             const mensaje = encodeURIComponent(
                 `✨ *NUEVO PEDIDO - decantAMS* ✨\n\n` +
                 `👤 *DATOS DEL CLIENTE:*\n` +
@@ -1463,7 +1682,6 @@
                 `_¡Hola! Dejo mis datos listos para que me proporciones la cuenta para el depósito o transferencia._`
             );
 
-            // 4. Redirigir al cliente a tu chat
             const urlWhatsApp = `https://api.whatsapp.com/send?phone=${tuTelefonoWhatsApp}&text=${mensaje}`;
             window.open(urlWhatsApp, '_blank');
         }
