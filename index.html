@@ -1,16 +1,14 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>decantAMS - Perfumes Exclusivos & Caps</title>
+    <title>decantAMS - Perfumes Exclusivos</title>
     <style>
-        /* Estilos CSS Base */
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* Estilos CSS Base con Fondo de Lujo Local Integrado */
+        *{margin:0;padding:0;box-sizing:border-box}
 
+        /* Asegura el desplazamiento suave al hacer clic en los enlaces del menú */
         html {
             scroll-behavior: smooth;
         }
@@ -24,46 +22,22 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            background-attachment: fixed;
+            background-attachment: fixed; /* Efecto parallax en el cel */
             color: #fff;
-            padding-top: 175px;
+            padding-top: 120px;
             overflow-x: hidden;
         }
         
         /* Navegación */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 8%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(8,8,8,.95);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(212,175,55,0.15);
-            backdrop-filter: blur(10px);
-        }
-        nav ul {
-            display: flex;
-            gap: 20px;
-            list-style: none;
-            align-items: center;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            transition: color 0.3s;
-            font-weight: 500;
-            letter-spacing: 1px;
-        }
-        nav a:hover { color: #D4AF37; }
+        nav{display:flex;justify-content:space-between;align-items:center;padding:15px 8%;position:fixed;top:0;left:0;width:100%;background:rgba(8,8,8,.95);z-index:1000;border-bottom:1px solid rgba(212,175,55,0.15);backdrop-filter: blur(10px);}
+        nav ul{display:flex;gap:20px;list-style:none;align-items:center}
+        nav a{color:#fff;text-decoration:none;transition: color 0.3s;font-weight: 500;letter-spacing: 1px;}
+        nav a:hover{color:#D4AF37}
 
         /* 📦 CINTURÓN DE ENVÍOS PREMIUM */
         .shipping-bar {
             position: fixed;
-            top: 55px;
+            top: 65px;
             left: 0;
             width: 100%;
             background: linear-gradient(90deg, rgba(212, 175, 55, 0.2) 0%, rgba(8, 8, 8, 0.95) 50%, rgba(212, 175, 55, 0.2) 100%);
@@ -90,65 +64,8 @@
             color: #fff;
         }
 
-        .shipping-item span { color: #D4AF37; }
-
-        /* ✨ CINTILLO / BANNER DE OFERTAS ESPECIALES */
-        .ofertas-bar {
-            background: linear-gradient(135deg, rgba(15, 15, 15, 0.98), rgba(0, 0, 0, 0.95));
-            border-bottom: 2px solid #D4AF37;
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
-            padding: 14px 10px;
-            text-align: center;
-            color: #fff;
-            position: relative;
-            z-index: 998;
-            margin-top: -8px;
-        }
-
-        .ofertas-titulo {
-            color: #D4AF37; 
-            font-size: 11px; 
-            text-transform: uppercase; 
-            letter-spacing: 2.5px; 
-            display: block; 
-            margin-bottom: 6px;
-            font-weight: bold;
-        }
-
-        .ofertas-subtitulo {
-            margin: 0 0 12px 0; 
-            font-size: 13px; 
-            color: #ccc;
-        }
-
-        .ofertas-contenedor-botones {
-            display: flex; 
-            justify-content: center; 
-            gap: 12px; 
-            flex-wrap: wrap;
-            max-width: 650px;
-            margin: 0 auto;
-        }
-
-        .oferta-btn-link {
-            text-decoration: none; 
-            background: rgba(212, 175, 55, 0.08); 
-            border: 1px solid rgba(212, 175, 55, 0.6); 
-            padding: 7px 14px; 
-            border-radius: 6px; 
-            color: #fff; 
-            font-size: 12px; 
-            font-weight: bold; 
-            display: flex; 
-            align-items: center; 
-            gap: 6px; 
-            transition: all 0.3s ease;
-        }
-
-        .oferta-btn-link:hover {
-            background: rgba(212, 175, 55, 0.25);
-            border-color: #D4AF37;
-            transform: translateY(-2px);
+        .shipping-item span {
+            color: #D4AF37;
         }
         
         /* Animación para el botón del carrito */
@@ -221,36 +138,12 @@
             text-shadow: 0 4px 10px rgba(0,0,0,0.5);
         }
 
-        .btn {
-            display: inline-block;
-            padding: 14px 35px;
-            background: #D4AF37;
-            color: #111;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: bold;
-            transition: transform 0.2s, background 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-            border: none;
-            box-shadow: 0 4px 15px rgba(212,175,55,0.3);
-        }
-        .btn:hover {
-            background: #fff;
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(255,255,255,0.4);
-        }
+        .btn{display:inline-block;padding:14px 35px;background:#D4AF37;color:#111;text-decoration:none;border-radius:30px;font-weight:bold;transition: transform 0.2s, background 0.3s, box-shadow 0.3s;cursor:pointer;border:none;box-shadow: 0 4px 15px rgba(212,175,55,0.3);}
+        .btn:hover{background:#fff;transform: scale(1.05);box-shadow: 0 6px 20px rgba(255,255,255,0.4);}
         
         /* Secciones */
-        section { padding: 80px 8%; }
-        h2 {
-            font-size: 2.2rem;
-            color: #D4AF37;
-            margin-bottom: 40px;
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            text-shadow: 0 2px 10px rgba(212,175,55,0.2);
-        }
+        section{padding:80px 8%}
+        h2{font-size:2.2rem;color:#D4AF37;margin-bottom:40px;text-align:center;text-transform: uppercase;letter-spacing: 3px;text-shadow: 0 2px 10px rgba(212,175,55,0.2);}
         
         /* Grid de Productos */
         .productos-grid {
@@ -312,7 +205,7 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
-        /* Tag de Familia Olfativa */
+        /* Tag de Familia Olfativa en Tarjeta */
         .badge-familia {
             display: inline-block;
             background: rgba(212, 175, 55, 0.12);
@@ -407,7 +300,9 @@
             line-height: 1;
         }
 
-        .close-modal:hover { color: #D4AF37; }
+        .close-modal:hover {
+            color: #D4AF37;
+        }
 
         .modal-titulo {
             color: #D4AF37;
@@ -440,7 +335,9 @@
             border: 1px solid rgba(212, 175, 55, 0.3);
         }
 
-        .modal-seccion { margin-bottom: 18px; }
+        .modal-seccion {
+            margin-bottom: 18px;
+        }
 
         .modal-seccion h3 {
             color: #D4AF37;
@@ -490,7 +387,9 @@
             outline: none;
         }
         
-        .medida-btn:hover { color: #fff; }
+        .medida-btn:hover {
+            color: #fff;
+        }
         
         .medida-btn.active {
             background: #D4AF37;
@@ -533,7 +432,9 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 18px rgba(255, 255, 255, 0.3);
         }
-        .btn-agregar:active { transform: translateY(1px); }
+        .btn-agregar:active {
+            transform: translateY(1px);
+        }
         
         /* Carrito Section */
         .carrito-container {
@@ -572,6 +473,7 @@
             margin: 25px 0;
         }
 
+        /* Acciones del Carrito (Botones de Pago) */
         .carrito-acciones {
             display: flex;
             flex-direction: column;
@@ -601,6 +503,32 @@
             color: #111;
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        /* 💵 BOTÓN DE PAGO EN EFECTIVO */
+        .btn-efectivo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            background: rgba(40, 167, 69, 0.15);
+            color: #28a745;
+            padding: 14px;
+            border: 2px solid #28a745;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-efectivo:hover {
+            background: #28a745;
+            color: #111;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
         }
         
         /* Botón de WhatsApp */
@@ -649,7 +577,7 @@
             transition: all 0.3s;
         }
 
-        /* 🏦 ESTILOS DEL MODAL DE PAGO SPEI */
+        /* 🏦 ESTILOS DEL MODAL DE PAGO SPEI Y EFECTIVO */
         .bank-info-box {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(212, 175, 55, 0.25);
@@ -750,7 +678,9 @@
             transition: transform 0.8s ease;
         }
 
-        .slide:hover img { transform: scale(1.03); }
+        .slide:hover img {
+            transform: scale(1.03);
+        }
 
         .slide-caption {
             width: 100%;
@@ -835,7 +765,7 @@
         /* Toast Notificación */
         .toast-notificacion {
             position: fixed;
-            top: 180px;
+            top: 130px;
             left: 50%;
             transform: translate(-50%, -150px);
             background: rgba(17, 17, 17, 0.95);
@@ -981,13 +911,13 @@
                 gap: 12px;
             }
 
-            .shipping-bar {
-                top: 85px;
+            h1 {
+                font-size: 1.8rem !important;
             }
 
-            h1 { font-size: 1.8rem !important; }
-
-            body { padding-top: 210px !important; }
+            body {
+                padding-top: 150px !important;
+            }
 
             .productos-grid {
                 grid-template-columns: repeat(2, 1fr) !important;
@@ -1070,30 +1000,15 @@
         </div>
     </div>
 
-    <!-- ✨ Banner Superior de Ofertas Especiales -->
-    <div class="ofertas-bar">
-        <span class="ofertas-titulo">
-            ✨ ESPECIAL DE APERTURA: 10ML EN OFERTA ✨
-        </span>
-        
-        <p class="ofertas-subtitulo">
-            Haz clic en tu favorito para ver la promoción:
-        </p>
-
-        <div class="ofertas-contenedor-botones">
-            <a href="#prod-mandarin" onclick="activarOfertaPerfume('Mandarin sky')" class="oferta-btn-link">
-                🍊 Mandarin Sky <span style="color: #D4AF37;">$105</span>
-            </a>
-
-            <a href="#prod-club" onclick="activarOfertaPerfume('Club de nuit intense')" class="oferta-btn-link">
-                🔥 Club de Nuit <span style="color: #D4AF37;">$105</span>
-            </a>
-
-            <a href="#prod-rave" onclick="activarOfertaPerfume('Rave now woman')" class="oferta-btn-link">
-                ✨ Rave Now <span style="color: #D4AF37;">$100</span>
-            </a>
-        </div>
-    </div>
+    <!-- Banner Informativo: ¿Qué es un Decant? -->
+<div style="background: linear-gradient(135deg, rgba(20, 20, 20, 0.95), rgba(10, 10, 10, 0.98)); border-top: 1px solid rgba(212, 175, 55, 0.3); border-bottom: 2px solid #D4AF37; padding: 16px 12px; text-align: center; color: #fff; position: relative; z-index: 998; margin-top: 5px; margin-bottom: 15px;">
+  <span style="color: #D4AF37; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 6px; font-weight: bold;">
+    ✨ ¿QUÉ ES UN DECANT? ✨
+  </span>
+  <p style="margin: 0 auto; font-size: 13px; color: #ccc; max-width: 620px; line-height: 1.5;">
+    Un <strong style="color: #D4AF37;">decant</strong> es una muestra original extraída directamente del perfume auténtico y reenvasada en un atomizador más pequeño (5ml o 10ml). La opción ideal para probar varios perfumes sin gastar de más o llevar tu aroma favorito a todos lados.
+  </p>
+</div>
 
     <script>
     function activarOfertaPerfume(nombreOriginal) {
@@ -1147,7 +1062,7 @@
 
                 <div class="medidas-container">
                     <button class="medida-btn active" data-size="5ml" data-price="85">5ml</button>
-                    <button class="medida-btn" data-size="10ml" data-price="105">10ml</button>
+                    <button class="medida-btn" data-size="10ml" data-price="150">10ml</button>
                 </div>
                 <div class="precio-dinamico">$85.00</div>
                 <button class="btn-agregar">Agregar al Carrito</button>
@@ -1243,7 +1158,7 @@
 
                 <div class="medidas-container">
                     <button class="medida-btn active" data-size="5ml" data-price="85">5ml</button>
-                    <button class="medida-btn" data-size="10ml" data-price="105">10ml</button>
+                    <button class="medida-btn" data-size="10ml" data-price="150">10ml</button>
                 </div>
                 <div class="precio-dinamico">$85.00</div>
                 <button class="btn-agregar">Agregar al Carrito</button>
@@ -1283,7 +1198,7 @@
 
             <!-- 10. Tubbees Cookies & Cream -->
             <div class="card" data-tipo="perfume" data-nombre="Tubbees cookies & cream">
-                <img src="https://i.postimg.cc/bvjD6S79/Cookies.png" alt="Tubbees cookies & cream">
+                <img src="https://i.postimg.cc/bvjD6S79/Cookies.png" alt="Tubbees cookies&cream">
                 <h3>Tubbees cookies & cream</h3>
                 <span class="badge-familia">Gourmand Extremo</span>
 
@@ -1307,7 +1222,7 @@
 
                 <div class="medidas-container">
                     <button class="medida-btn active" data-size="5ml" data-price="80">5ml</button>
-                    <button class="medida-btn" data-size="10ml" data-price="100">10ml</button>
+                    <button class="medida-btn" data-size="10ml" data-price="140">10ml</button>
                 </div>
                 <div class="precio-dinamico">$80.00</div>
                 <button class="btn-agregar">Agregar al Carrito</button>
@@ -1329,7 +1244,7 @@
                 <button class="btn-agregar">Agregar al Carrito</button>
             </div>
 
-            <!-- 13. Nautica Classic -->
+            <!-- 13. Nautica Classic (NUEVO) -->
             <div class="card" data-tipo="perfume" data-nombre="Nautica classic">
                 <img src="https://i.postimg.cc/Jnq7bjFz/Nautica.png" alt="Nautica classic">
                 <h3>Nautica classic</h3>
@@ -1347,24 +1262,26 @@
 
             <!-- 14. Afnan 9PM -->
             <div class="card" data-tipo="perfume" data-nombre="Afnan 9pm">
-                <img src="https://i.postimg.cc/1t2S0MKj/9pm.png" alt="Afnan 9pm">
+                <img src="https://i.postimg.cc/CMZ5NCWc/9pmclasic.png" alt="Afnan 9pm">
                 <h3>Afnan 9pm</h3>
                 <span class="badge-familia">Oriental Vainilla</span>
+                <span class="badge-agotado" style="background-color: #dc3545; color: #fff; font-size: 0.75rem; font-weight: bold; padding: 3px 8px; border-radius: 12px; display: inline-block; margin-top: 5px;">Agotado</span>
 
                 <button class="btn-ficha-tecnica" onclick="abrirModal('modal-afnan-9pm')">🔍 Ficha Técnica</button>
 
                 <div class="medidas-container">
-                    <button class="medida-btn active" data-size="5ml" data-price="85">5ml</button>
-                    <button class="medida-btn" data-size="10ml" data-price="140">10ml</button>
+                    <button class="medida-btn active" data-size="5ml" data-price="85" disabled style="opacity: 0.5; cursor: not-allowed;">5ml</button>
+                    <button class="medida-btn" data-size="10ml" data-price="140" disabled style="opacity: 0.5; cursor: not-allowed;">10ml</button>
                 </div>
                 <div class="precio-dinamico">$85.00</div>
-                <button class="btn-agregar">Agregar al Carrito</button>
+                <button class="btn-agregar" disabled style="background-color: #555; color: #aaa; cursor: not-allowed; opacity: 0.7;">Agotado</button>
             </div>
+
 
         </div>
     </section>
 
-    <!-- 🪟 MODALES DE FICHAS TÉCNICAS -->
+    <!-- 🪟 MODALES DE FICHAS TÉCNICAS (14 PERFUMES) -->
     
     <!-- 1. Mandarin Sky Modal -->
     <div id="modal-mandarin" class="modal-container">
@@ -1690,7 +1607,7 @@
         </div>
     </div>
 
-    <!-- 13. Nautica Classic Modal -->
+    <!-- 13. Nautica Classic Modal (NUEVO) -->
     <div id="modal-nautica-classic" class="modal-container">
         <div class="modal-content">
             <span class="close-modal" onclick="cerrarModal('modal-nautica-classic')">&times;</span>
@@ -1717,7 +1634,7 @@
         </div>
     </div>
 
-    <!-- 14. Afnan 9PM Modal -->
+    <!-- 14. Afnan 9PM Modal (NUEVO) -->
     <div id="modal-afnan-9pm" class="modal-container">
         <div class="modal-content">
             <span class="close-modal" onclick="cerrarModal('modal-afnan-9pm')">&times;</span>
@@ -1782,6 +1699,37 @@
         </div>
     </div>
 
+    <!-- 💵 MODAL DE PAGO EN EFECTIVO (NUEVO) -->
+    <div id="modal-pago-efectivo" class="modal-container">
+        <div class="modal-content">
+            <span class="close-modal" onclick="cerrarModal('modal-pago-efectivo')">&times;</span>
+            <h2 class="modal-titulo">PAGO EN EFECTIVO</h2>
+            <p class="modal-subtitulo">Pago contra entrega en zonas locales</p>
+            
+            <div class="bank-info-box" style="border-color: rgba(40, 167, 69, 0.4); background: rgba(40, 167, 69, 0.05);">
+                <div class="info-row">
+                    <span>Método:</span>
+                    <strong style="color: #28a745;">Pago contra entrega (Efectivo)</strong>
+                </div>
+                <div class="info-row">
+                    <span>Zona de cobertura:</span>
+                    <strong>Entregas locales / Punto medio</strong>
+                </div>
+            </div>
+
+            <p class="modal-note">💡 Coordinaremos la hora y el punto de encuentro por WhatsApp para realizar tu entrega.</p>
+
+            <div class="modal-seccion">
+                <a href="#" id="btn-efectivo-wa" class="btn-whatsapp" target="_blank" style="border-color: #28a745; color: #28a745;">
+                    <svg viewBox="0 0 448 512">
+                        <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L32 503l138.9-36.4c32.6 17.8 69 27.2 106.4 27.2 122.4 0 222-99.6 222-222 0-59.3-23-115.1-65-157.1zM223.9 459c-33.2 0-65.7-8.9-94-25.7l-6.7-4-82.5 21.6 22-80.5-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 54 81.2 54 130.4 0 101.7-82.8 184.5-184.6 184.5zm100.5-137.5c-5.5-2.7-32.6-16.1-37.7-17.9-5.1-1.9-8.8-2.7-12.5 2.8-3.7 5.5-14.3 17.9-17.6 21.6-3.2 3.7-6.5 4.1-12 1.4-15-7.5-27.4-12.8-39.3-21.9-30-22.9-46.3-51.6-47.4-56.5-1.1-4.9 1.1-7.7 3.5-10.3 2.1-2.2 4.6-5.4 7-8.1 2.4-2.7 3.2-4.6 4.9-7.8 1.6-3.2 .8-6-1.6-11.5-2.4-5.5-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.5-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.6-13.4 37.2-26.3 4.6-13 4.6-24.1 3.2-26.4-1.3-2.3-5-3.7-10.5-6.5z"/>
+                    </svg>
+                    Acordar Entrega en Efectivo por WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
     <section id="gorras">
         <h2>Gorras Exclusivas</h2>
         <div class="productos-grid">
@@ -1803,7 +1751,7 @@
                 <img src="https://i.postimg.cc/m2f59QZN/Barbasbcrs.png" alt="BARBASHATS BCROSS">
                 <h3>BARBASHATS BCROSS</h3>
                 <span class="badge-familia">Streetwear</span>
-                <p style="font-size: 0.8rem; color: #aaa; margin-bottom: 15px;">👑 Logo bordado con pedrería</p>
+                <p style="font-size: 0.8rem; color: #aaa; margin-bottom: 15px;">👑 Logo bordado con pedreria</p>
                 
                 <div class="medidas-container">
                     <button class="medida-btn active" data-size="Unitalla" data-price="750">Unitalla</button>
@@ -1826,6 +1774,11 @@
             <div id="contenedor-acciones-pago" class="carrito-acciones" style="display: none;">
                 <button class="btn-spei" onclick="abrirModal('modal-pago-spei')">
                     💳 Pagar por Transferencia (SPEI)
+                </button>
+
+                <!-- BOTÓN PAGO EN EFECTIVO -->
+                <button class="btn-efectivo" onclick="abrirModal('modal-pago-efectivo')">
+                    💵 Pago en Efectivo (Contra Entrega)
                 </button>
 
                 <a href="#" id="whatsapp-link" class="btn-whatsapp" target="_blank">
@@ -1851,8 +1804,8 @@
                         <img src="https://i.postimg.cc/cChWjTXp/Gorrita.jpg" alt="Cliente Satisfecho 1">
                     </div>
                     <div class="slide-caption">
-                        <p>"Excelente atención y la gorra en perfecto estado, totalmente nueva"</p>
-                        <span>— Anónimo (Calimaya)</span>
+                        <p>"Excelente atención y la gorra en perfecto estado estado nuevo"</p>
+                        <span>— anonimo (calimaya)</span>
                     </div>
                 </div>
 
@@ -1861,7 +1814,7 @@
                         <img src="https://i.postimg.cc/VvgwT4Kc/Decant1.jpg" alt="Cliente Satisfecho 2">
                     </div>
                     <div class="slide-caption">
-                        <p>"Los decants son originales y huelen muy rico, además de su duración. Muy buena atención."</p>
+                        <p>"Los decants son originales y huelen muy rico ademas de su duración muy buena atencion."</p>
                         <span>— Jessica N. (Calimaya)</span>
                     </div>
                 </div>
@@ -1871,8 +1824,8 @@
                         <img src="https://i.postimg.cc/hvsnwMp2/Decabt2.jpg" alt="Cliente Satisfecho 3">
                     </div>
                     <div class="slide-caption">
-                        <p>"Muy buenos productos, todo original y a buen precio. ¡Súper recomendados!"</p>
-                        <span>— Edgar (Toluca)</span>
+                        <p>"Muy buenos productos todo original y a buen precio. ¡Súper recomendados!"</p>
+                        <span>— Edgar. (Toluca)</span>
                     </div>
                 </div>
 
@@ -1925,6 +1878,7 @@
 
     <script>
         let carrito = [];
+
         let currentSlide = 0;
         let slideInterval;
         const slides = document.getElementById('carousel-slides');
@@ -1980,6 +1934,7 @@
                     if (!card) return;
 
                     const nombre = card.getAttribute('data-nombre');
+                    const tipo = card.getAttribute('data-tipo');
                     
                     const btnActivo = card.querySelector('.medida-btn.active');
                     const medida = btnActivo ? btnActivo.getAttribute('data-size') : 'Unitalla';
@@ -1999,7 +1954,7 @@
             const modal = document.getElementById(idModal);
             if (modal) {
                 modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
+                document.body.style.overflow = 'hidden'; /* Evita scroll de fondo */
             }
         }
 
@@ -2007,10 +1962,11 @@
             const modal = document.getElementById(idModal);
             if (modal) {
                 modal.classList.remove('active');
-                document.body.style.overflow = 'auto';
+                document.body.style.overflow = 'auto'; /* Reactiva scroll */
             }
         }
 
+        /* Cerrar modal si hace clic fuera o presiona la tecla ESC */
         window.onclick = function(e) {
             if (e.target.classList.contains('modal-container')) {
                 e.target.classList.remove('active');
@@ -2029,7 +1985,7 @@
 
         /* 📋 COPIAR CLABE INTERBANCARIA */
         function copiarClabe() {
-            const clabe = "012180015735318339";
+            const clabe = "012180015735318339"; // Poner aquí la CLABE limpia sin espacios
             navigator.clipboard.writeText(clabe).then(() => {
                 mostrarToast("¡CLABE copiada al portapapeles!");
             });
@@ -2098,6 +2054,7 @@
             const contenedorAcciones = document.getElementById('contenedor-acciones-pago');
             const whatsappLink = document.getElementById('whatsapp-link');
             const btnComprobanteWa = document.getElementById('btn-comprobante-wa');
+            const btnEfectivoWa = document.getElementById('btn-efectivo-wa');
 
             if (carrito.length === 0) {
                 contenedor.innerHTML = '<p style="text-align: center; color: #ccc;">Tu carrito está vacío.</p>';
@@ -2146,6 +2103,14 @@
             });
             mensajeSpei += `\n*Total pagado: $${total.toFixed(2)}*\n\nAdjunto mi comprobante de pago:`;
             btnComprobanteWa.href = `https://wa.me/5217226772484?text=${encodeURIComponent(mensajeSpei)}`;
+
+            // Mensaje para coordinar entrega y Pago en Efectivo
+            let mensajeEfectivo = `Hola decantAMS, me gustaría realizar mi pedido con *Pago en Efectivo (Contra Entrega)*:\n\n`;
+            carrito.forEach(item => {
+                mensajeEfectivo += `- ${item.nombre} (${item.medida}) x${item.cantidad}\n`;
+            });
+            mensajeEfectivo += `\n*Total a pagar en efectivo: $${total.toFixed(2)}*\n\n¿En qué punto o zona local nos podríamos ver?`;
+            btnEfectivoWa.href = `https://wa.me/5217226772484?text=${encodeURIComponent(mensajeEfectivo)}`;
 
             contenedorAcciones.style.display = 'flex';
         }
